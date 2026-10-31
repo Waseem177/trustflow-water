@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.py[cod]
+data/
+*.docx
+*.pdf
+*:Zone.Identifier
+whitepaper/
+.ipynb_checkpoints/
+
+# derived from iTrust SWaT data; do not redistribute
+results/swat_adaptive_arrays.npz
+video/

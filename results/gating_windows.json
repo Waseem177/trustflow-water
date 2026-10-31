@@ -1,0 +1,157 @@
+{
+ "design": "Part 1, exposure. \"Water flowing\" is judged from measured flow only:\n    SWaT        FIT501 > 0.5 m3/h (RO feed)\n    Port Hueneme  FE/FT-100 > 10 (UF feed)\n  For each check: share of flowing time it is off; number of off-while-flowing\n  windows per day; median and longest window. Data: SWaT 2015 normal week\n  (all rows), SWaT 2015 attack file (attack-free rows), Port Hueneme test files.\n  Part 2, the status-tag hole (SWaT). Proposed identity check \"pump status vs\n  flow\": alarm when P501 reports not running while FIT501 > 0.5 m3/h, or reports\n  running while FIT501 < 0.5 m3/h, for at least STATUS_PERSIST_S = 30 s, with no\n  tolerance to fit. Measured: alarm rows and episodes per day on the held-out\n  30% of the normal week and on the attack file's attack-free rows; which\n  labelled attacks trip it.\n  Adopt the status check if it raises no more than 1 alarm episode a day on the\n  held-out normal data.",
+ "swat_2015_normal_week": {
+  "flow_balance": {
+   "flowing_days": 5.712,
+   "share_of_flowing_time_off": 0.0008,
+   "windows": 1,
+   "windows_per_day": 0.18,
+   "median_window_s": 371.0,
+   "longest_window_s": 371.0
+  },
+  "feed_meters": {
+   "flowing_days": 5.712,
+   "share_of_flowing_time_off": 0.0,
+   "windows": 0,
+   "windows_per_day": 0.0,
+   "median_window_s": null,
+   "longest_window_s": null
+  },
+  "brine_dp": {
+   "flowing_days": 5.712,
+   "share_of_flowing_time_off": 0.0008,
+   "windows": 1,
+   "windows_per_day": 0.18,
+   "median_window_s": 371.0,
+   "longest_window_s": 371.0
+  },
+  "permeability": {
+   "flowing_days": 5.712,
+   "share_of_flowing_time_off": 0.0008,
+   "windows": 1,
+   "windows_per_day": 0.18,
+   "median_window_s": 371.0,
+   "longest_window_s": 371.0
+  },
+  "salt_passage": {
+   "flowing_days": 5.712,
+   "share_of_flowing_time_off": 0.0008,
+   "windows": 1,
+   "windows_per_day": 0.18,
+   "median_window_s": 371.0,
+   "longest_window_s": 371.0
+  },
+  "orp_pair": {
+   "flowing_days": 5.712,
+   "share_of_flowing_time_off": 0.0,
+   "windows": 0,
+   "windows_per_day": 0.0,
+   "median_window_s": null,
+   "longest_window_s": null
+  }
+ },
+ "swat_2015_attack_file_attack_free": {
+  "flow_balance": {
+   "flowing_days": 4.574,
+   "share_of_flowing_time_off": 0.0032,
+   "windows": 4,
+   "windows_per_day": 0.87,
+   "median_window_s": 311.0,
+   "longest_window_s": 337.0
+  },
+  "feed_meters": {
+   "flowing_days": 4.574,
+   "share_of_flowing_time_off": 0.0,
+   "windows": 0,
+   "windows_per_day": 0.0,
+   "median_window_s": null,
+   "longest_window_s": null
+  },
+  "brine_dp": {
+   "flowing_days": 4.574,
+   "share_of_flowing_time_off": 0.0032,
+   "windows": 4,
+   "windows_per_day": 0.87,
+   "median_window_s": 311.0,
+   "longest_window_s": 337.0
+  },
+  "permeability": {
+   "flowing_days": 4.574,
+   "share_of_flowing_time_off": 0.0032,
+   "windows": 4,
+   "windows_per_day": 0.87,
+   "median_window_s": 311.0,
+   "longest_window_s": 337.0
+  },
+  "salt_passage": {
+   "flowing_days": 4.574,
+   "share_of_flowing_time_off": 0.0032,
+   "windows": 4,
+   "windows_per_day": 0.87,
+   "median_window_s": 311.0,
+   "longest_window_s": 337.0
+  },
+  "orp_pair": {
+   "flowing_days": 4.574,
+   "share_of_flowing_time_off": 0.0002,
+   "windows": 2,
+   "windows_per_day": 0.44,
+   "median_window_s": 36.5,
+   "longest_window_s": 37.0
+  }
+ },
+ "port_hueneme_test_days": {
+  "flowing_days": 30.566,
+  "share_of_flowing_time_off": 0.5203,
+  "windows": 2387,
+  "windows_per_day": 78.09,
+  "median_window_s": 630.0,
+  "longest_window_s": 5701.0,
+  "note": "off = backwash and the 180 s after it, plus other non-filtration states while feed flows"
+ },
+ "status_vs_flow_check": {
+  "heldout_normal": {
+   "days": 1.719,
+   "flagged_rows": 0,
+   "episodes": 0,
+   "episodes_per_day": 0.0,
+   "merged_alarms": 0,
+   "merged_per_day": 0.0,
+   "median_episode_s": null,
+   "longest_episode_s": null
+  },
+  "attack_file_attack_free": {
+   "days": 4.575,
+   "flagged_rows": 59,
+   "episodes": 2,
+   "episodes_per_day": 0.44,
+   "merged_alarms": 2,
+   "merged_per_day": 0.44,
+   "median_episode_s": 29.5,
+   "longest_episode_s": 37.0
+  },
+  "attacks_tripping_it": [
+   {
+    "id": 10,
+    "point": "FIT-401",
+    "share_flagged": 0.106
+   },
+   {
+    "id": 11,
+    "point": "FIT-401",
+    "share_flagged": 0.97
+   },
+   {
+    "id": 22,
+    "point": "UV-401, AIT-502, P-501",
+    "share_flagged": 0.959
+   },
+   {
+    "id": 40,
+    "point": "FIT-401",
+    "share_flagged": 0.869
+   }
+  ],
+  "adopt": true
+ }
+}

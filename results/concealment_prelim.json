@@ -1,0 +1,28 @@
+{
+  "continuous_only": {
+    "editable_channels": 31,
+    "recall_before": 0.6519,
+    "recall_after": 0.4304,
+    "detected_before": 1283,
+    "already_missed_no_attack": 685,
+    "detected_after": 847,
+    "newly_hidden_by_attack": 436,
+    "newly_hidden_caught_by_physics": 325,
+    "newly_hidden_evading_both": 111
+  },
+  "all_channels": {
+    "editable_channels": 43,
+    "recall_before": 0.6519,
+    "recall_after": 0.0,
+    "detected_before": 1283,
+    "already_missed_no_attack": 685,
+    "detected_after": 0,
+    "newly_hidden_by_attack": 1283,
+    "newly_hidden_caught_by_physics": 1247,
+    "newly_hidden_evading_both": 36
+  },
+  "n_attack_samples": 1968,
+  "invariant_false_alarms_normal_test": 0,
+  "n_normal_test": 16465,
+  "invariant_flags_on_unmodified_attacks": 0
+}

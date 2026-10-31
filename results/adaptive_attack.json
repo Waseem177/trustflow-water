@@ -1,0 +1,9 @@
+{
+  "n_attack_samples": 1968,
+  "recall_before": 0.6519,
+  "recall_after_invariant_aware": 0.4096,
+  "detected_before": 1283,
+  "newly_hidden_by_invariant_aware_attack": 477,
+  "invariant_violations": 0,
+  "note": "attacker is projected onto the invariant every step, so violations are 0 by construction"
+}

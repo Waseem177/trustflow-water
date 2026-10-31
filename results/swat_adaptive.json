@@ -1,0 +1,396 @@
+{
+ "design": "Scope      TrustFlow's claim is the RO stage, so the detector watches the 22\n             P4-P5 tags (15 continuous, 7 actuator states) and the test rows are\n             the 9 SWaT 2015 attacks on P4-P5 sensors (RO_SENSOR_ATTACKS).\n  Detector   Same autoencoder design as BATADAL, trained on Normal_v1 after the\n             first 6 h of start-up, up to the 70% calibration split, every 5th\n             second. Threshold = 99.5th percentile of validation error.\n  Naive      Edits the 15 continuous readings to minimise reconstruction error\n             (actuator states are not editable, as in the BATADAL budget).\n  Adaptive   Same, plus all six physics checks (swat_invariants, 2015\n             calibration) kept within tolerance: penalty on max(0, |r| - 0.9)^2\n             with a rising weight. Gates are recomputed from the attacker's own\n             reported values every step (an attacker may try to switch a gate\n             off); trailing references are fixed from the clean attack file,\n             as in the simulated set.\n  Scoring    Physics violations with the deployed 10 s persistence (1 s also\n             reported). hidden = caught by the detector before, not after.\n  Criterion  Fixed in the white paper: if the adaptive attacker still hides more\n             than half of what the naive attacker hides, the physics layer is\n             reported as insufficient.\n  REVISION before any attack result was used (18 Oct): the first run's\n             detector raised false alarms on 40% of held-out normal data and\n             100% of the attack file's normal rows, so its results were\n             discarded. Causes: all 7 actuator states are constant in training\n             (spread ~0, so any switch looks extreme), and the analyser tags\n             (AIT401/402/501-504) drift between days (77% false alarms with\n             them in). The detector now reads the 9 flow, pressure and level\n             tags (DET), and its threshold comes from the temporally held-out\n             last 30% of the normal file, not a random sample of the training\n             period. The attacker edits the detector's inputs. The physics\n             checks still read every tag they need. Checkpoints extended to\n             30,000 steps because the naive attacker had not converged.\n  Out of scope: wholesale replay of recorded normal data. It is physically\n             consistent by construction; Palleti et al. (2020) show replay of\n             sensors and actuators also defeats model-based checks.",
+ "detector": {
+  "false_alarms_normal_heldout": 0.005,
+  "false_alarms_attackfile_normal_rows": 0.09113,
+  "recall_all_attack_rows": 0.6966,
+  "recall_ro_attack_rows": 0.7358,
+  "ro_attack_rows": 3286,
+  "ro_rows_caught": 2418,
+  "ro_episodes_caught": "7 of 9"
+ },
+ "rows_to_hide": 2418,
+ "unmodified_attack_rows": {
+  "hidden": 0,
+  "persist_10s": {
+   "caught_by_physics": 0,
+   "evading_both": 0
+  },
+  "persist_1s": {
+   "caught_by_physics": 0,
+   "evading_both": 0
+  },
+  "checks_binding_on_hidden_rows": {}
+ },
+ "naive": {
+  "300": {
+   "hidden": 198,
+   "persist_10s": {
+    "caught_by_physics": 134,
+    "evading_both": 64
+   },
+   "persist_1s": {
+    "caught_by_physics": 134,
+    "evading_both": 64
+   },
+   "checks_binding_on_hidden_rows": {
+    "flow_balance": 0.0,
+    "feed_meters": 0.0,
+    "brine_dp": 0.0,
+    "permeability": 0.0,
+    "salt_passage": 0.0,
+    "orp_pair": 0.677
+   }
+  },
+  "1000": {
+   "hidden": 202,
+   "persist_10s": {
+    "caught_by_physics": 137,
+    "evading_both": 65
+   },
+   "persist_1s": {
+    "caught_by_physics": 138,
+    "evading_both": 64
+   },
+   "checks_binding_on_hidden_rows": {
+    "flow_balance": 0.005,
+    "feed_meters": 0.0,
+    "brine_dp": 0.005,
+    "permeability": 0.0,
+    "salt_passage": 0.0,
+    "orp_pair": 0.678
+   }
+  },
+  "3000": {
+   "hidden": 208,
+   "persist_10s": {
+    "caught_by_physics": 144,
+    "evading_both": 64
+   },
+   "persist_1s": {
+    "caught_by_physics": 144,
+    "evading_both": 64
+   },
+   "checks_binding_on_hidden_rows": {
+    "flow_balance": 0.01,
+    "feed_meters": 0.0,
+    "brine_dp": 0.014,
+    "permeability": 0.0,
+    "salt_passage": 0.0,
+    "orp_pair": 0.678
+   }
+  },
+  "10000": {
+   "hidden": 2386,
+   "persist_10s": {
+    "caught_by_physics": 1494,
+    "evading_both": 892
+   },
+   "persist_1s": {
+    "caught_by_physics": 1510,
+    "evading_both": 876
+   },
+   "checks_binding_on_hidden_rows": {
+    "flow_balance": 0.062,
+    "feed_meters": 0.0,
+    "brine_dp": 0.206,
+    "permeability": 0.2,
+    "salt_passage": 0.092,
+    "orp_pair": 0.507
+   }
+  },
+  "20000": {
+   "hidden": 2418,
+   "persist_10s": {
+    "caught_by_physics": 1494,
+    "evading_both": 924
+   },
+   "persist_1s": {
+    "caught_by_physics": 1532,
+    "evading_both": 886
+   },
+   "checks_binding_on_hidden_rows": {
+    "flow_balance": 0.014,
+    "feed_meters": 0.0,
+    "brine_dp": 0.108,
+    "permeability": 0.197,
+    "salt_passage": 0.091,
+    "orp_pair": 0.5
+   }
+  },
+  "30000": {
+   "hidden": 2418,
+   "persist_10s": {
+    "caught_by_physics": 1365,
+    "evading_both": 1053
+   },
+   "persist_1s": {
+    "caught_by_physics": 1367,
+    "evading_both": 1051
+   },
+   "checks_binding_on_hidden_rows": {
+    "flow_balance": 0.007,
+    "feed_meters": 0.0,
+    "brine_dp": 0.044,
+    "permeability": 0.211,
+    "salt_passage": 0.091,
+    "orp_pair": 0.5
+   }
+  }
+ },
+ "adaptive": {
+  "300": {
+   "hidden": 198,
+   "persist_10s": {
+    "caught_by_physics": 134,
+    "evading_both": 64
+   },
+   "persist_1s": {
+    "caught_by_physics": 134,
+    "evading_both": 64
+   },
+   "checks_binding_on_hidden_rows": {
+    "flow_balance": 0.0,
+    "feed_meters": 0.0,
+    "brine_dp": 0.0,
+    "permeability": 0.0,
+    "salt_passage": 0.0,
+    "orp_pair": 0.677
+   }
+  },
+  "1000": {
+   "hidden": 202,
+   "persist_10s": {
+    "caught_by_physics": 137,
+    "evading_both": 65
+   },
+   "persist_1s": {
+    "caught_by_physics": 137,
+    "evading_both": 65
+   },
+   "checks_binding_on_hidden_rows": {
+    "flow_balance": 0.005,
+    "feed_meters": 0.0,
+    "brine_dp": 0.005,
+    "permeability": 0.0,
+    "salt_passage": 0.0,
+    "orp_pair": 0.678
+   }
+  },
+  "3000": {
+   "hidden": 208,
+   "persist_10s": {
+    "caught_by_physics": 141,
+    "evading_both": 67
+   },
+   "persist_1s": {
+    "caught_by_physics": 141,
+    "evading_both": 67
+   },
+   "checks_binding_on_hidden_rows": {
+    "flow_balance": 0.01,
+    "feed_meters": 0.0,
+    "brine_dp": 0.01,
+    "permeability": 0.0,
+    "salt_passage": 0.0,
+    "orp_pair": 0.678
+   }
+  },
+  "10000": {
+   "hidden": 2416,
+   "persist_10s": {
+    "caught_by_physics": 1365,
+    "evading_both": 1051
+   },
+   "persist_1s": {
+    "caught_by_physics": 1365,
+    "evading_both": 1051
+   },
+   "checks_binding_on_hidden_rows": {
+    "flow_balance": 0.001,
+    "feed_meters": 0.0,
+    "brine_dp": 0.067,
+    "permeability": 0.203,
+    "salt_passage": 0.091,
+    "orp_pair": 0.5
+   }
+  },
+  "20000": {
+   "hidden": 2418,
+   "persist_10s": {
+    "caught_by_physics": 1365,
+    "evading_both": 1053
+   },
+   "persist_1s": {
+    "caught_by_physics": 1365,
+    "evading_both": 1053
+   },
+   "checks_binding_on_hidden_rows": {
+    "flow_balance": 0.0,
+    "feed_meters": 0.0,
+    "brine_dp": 0.154,
+    "permeability": 0.208,
+    "salt_passage": 0.091,
+    "orp_pair": 0.5
+   }
+  },
+  "30000": {
+   "hidden": 2418,
+   "persist_10s": {
+    "caught_by_physics": 1365,
+    "evading_both": 1053
+   },
+   "persist_1s": {
+    "caught_by_physics": 1365,
+    "evading_both": 1053
+   },
+   "checks_binding_on_hidden_rows": {
+    "flow_balance": 0.007,
+    "feed_meters": 0.0,
+    "brine_dp": 0.175,
+    "permeability": 0.0,
+    "salt_passage": 0.091,
+    "orp_pair": 0.5
+   }
+  }
+ },
+ "per_attack_final": {
+  "10": {
+   "attack": "Set value of FIT-401 as <0.7",
+   "caught_by_detector": 161,
+   "naive": {
+    "hidden": 161,
+    "evading_both": 161,
+    "physics_checks_firing": {
+     "brine_dp": 0.01
+    }
+   },
+   "adaptive": {
+    "hidden": 161,
+    "evading_both": 161,
+    "physics_checks_firing": {}
+   }
+  },
+  "11": {
+   "attack": "Set value of FIT-401 as 0",
+   "caught_by_detector": 561,
+   "naive": {
+    "hidden": 561,
+    "evading_both": 47,
+    "physics_checks_firing": {
+     "orp_pair": 0.92
+    }
+   },
+   "adaptive": {
+    "hidden": 561,
+    "evading_both": 47,
+    "physics_checks_firing": {
+     "orp_pair": 0.92
+    }
+   }
+  },
+  "19": {
+   "attack": "Set value of AIT-504 to 16 uS/cm",
+   "caught_by_detector": 0
+  },
+  "20": {
+   "attack": "Set value of AIT-504 to 255 uS/cm",
+   "caught_by_detector": 0
+  },
+  "22": {
+   "attack": "Stop UV-401; Value of AIT502 set as 150; Force P-501 to rema",
+   "caught_by_detector": 458,
+   "naive": {
+    "hidden": 458,
+    "evading_both": 56,
+    "physics_checks_firing": {
+     "orp_pair": 0.88
+    }
+   },
+   "adaptive": {
+    "hidden": 458,
+    "evading_both": 56,
+    "physics_checks_firing": {
+     "orp_pair": 0.88
+    }
+   }
+  },
+  "37": {
+   "attack": "Close P-501; Set value of FIT-502 to 1.29  at 11:18:36",
+   "caught_by_detector": 428,
+   "naive": {
+    "hidden": 428,
+    "evading_both": 242,
+    "physics_checks_firing": {
+     "salt_passage": 0.43
+    }
+   },
+   "adaptive": {
+    "hidden": 428,
+    "evading_both": 242,
+    "physics_checks_firing": {
+     "salt_passage": 0.43
+    }
+   }
+  },
+  "38": {
+   "attack": "Set value of AIT402 as 260; Set value of AIT502 to 260",
+   "caught_by_detector": 152,
+   "naive": {
+    "hidden": 152,
+    "evading_both": 26,
+    "physics_checks_firing": {
+     "orp_pair": 0.83
+    }
+   },
+   "adaptive": {
+    "hidden": 152,
+    "evading_both": 26,
+    "physics_checks_firing": {
+     "orp_pair": 0.83
+    }
+   }
+  },
+  "39": {
+   "attack": "Set value of FIT-401 as 0.5; Set value of AIT-502 as 140 mV",
+   "caught_by_detector": 388,
+   "naive": {
+    "hidden": 388,
+    "evading_both": 388,
+    "physics_checks_firing": {}
+   },
+   "adaptive": {
+    "hidden": 388,
+    "evading_both": 388,
+    "physics_checks_firing": {}
+   }
+  },
+  "40": {
+   "attack": "Set value of FIT-401 as 0",
+   "caught_by_detector": 271,
+   "naive": {
+    "hidden": 271,
+    "evading_both": 134,
+    "physics_checks_firing": {
+     "orp_pair": 0.51
+    }
+   },
+   "adaptive": {
+    "hidden": 271,
+    "evading_both": 134,
+    "physics_checks_firing": {
+     "orp_pair": 0.51
+    }
+   }
+  }
+ },
+ "summary": {
+  "naive_hidden": 2418,
+  "naive_evading_both_10s": 1053,
+  "adaptive_evading_both_10s": 1053,
+  "adaptive_over_naive_hidden": 0.435,
+  "criterion": "insufficient if > 0.5",
+  "verdict": "physics layer passes the pre-set criterion",
+  "runtime_s": 748.9
+ }
+}

@@ -1,0 +1,19 @@
+{
+  "dataset": "WADI A2 (19 Nov 2019), Erba 82-feature subset",
+  "n_normal": 784571,
+  "n_attack_rows": 172803,
+  "attacked_timesteps": 9977,
+  "threshold_at_FPR": 0.01,
+  "threshold": 0.47174,
+  "recall": 0.26,
+  "precision": 0.6485,
+  "fpr": 0.0086,
+  "f1": 0.3712,
+  "roc_auc": 0.8016,
+  "pr_auc": 0.4536,
+  "episodes_detected": "8/14",
+  "erba_published": {
+    "recall": 0.68,
+    "fpr": 0.01
+  }
+}

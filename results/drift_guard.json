@@ -1,0 +1,230 @@
+{
+ "design": "Simulator, 60 days, seeds 0-4; calibrate\non days 0-30 (tolerances exactly as eval_swro_invariants; caps from\ndrift_guard.fit_cap on the same days); test on days 30-60.\n\n  False alarms   days 30-60, eight process checks and the energy check,\n                 running reference uncapped vs capped. Same tolerances.\n  Attack A       reported permeate TDS lowered by x (10%, 20%), ramped\n                 linearly over D (0 = step, 2 h, 12 h, 48 h), then held 12 h;\n                 onset day 45. Caught by the salt-passage check if at all.\n  Attack B       HP pump head changed by +x (5%, 10%) with the same ramps\n                 while every process tag replays the clean record; only the\n                 electrical meter shows the truth (as eval_energy.py).\n  References are computed from what the plant reports, as deployed: the\n  attacker's ramp does reach the reference.\n  Metrics        share of attack rows flagged; first alarm (min after onset);\n                 share flagged in the final 2 h of the attack.\n  Also reported  each cap as the slowest drift it lets through: a ramp slower\n                 than the cap looks like fouling and is not caught by design.",
+ "false_alarms": {
+  "uncapped": {
+   "process": {
+    "mean": 0.0003,
+    "max": 0.00095
+   },
+   "energy": {
+    "mean": 0.0,
+    "max": 0.0
+   }
+  },
+  "capped": {
+   "process": {
+    "mean": 0.0003,
+    "max": 0.00095
+   },
+   "energy": {
+    "mean": 0.0,
+    "max": 0.0
+   }
+  }
+ },
+ "caps_percent_per_hour": {
+  "ro_water_perm": 0.7614,
+  "ro_salt_perm": 0.3226,
+  "ro_brine_dp": 1.4347,
+  "uf_resistance": 8.1163,
+  "orp_pretreat": 158.1262,
+  "orp_ro": 775.9123
+ },
+ "energy_cap_percent_per_hour": 0.3446,
+ "A_permeate_TDS_ramp": {
+  "10% over 0 min": {
+   "uncapped": {
+    "share": 0.3322,
+    "first_alarm_min": 0.0,
+    "share_last_2h": 0.0
+   },
+   "capped": {
+    "share": 0.9881,
+    "first_alarm_min": 0.0,
+    "share_last_2h": 0.9383
+   }
+  },
+  "10% over 120 min": {
+   "uncapped": {
+    "share": 0.2752,
+    "first_alarm_min": 47.0,
+    "share_last_2h": 0.0
+   },
+   "capped": {
+    "share": 0.8929,
+    "first_alarm_min": 47.0,
+    "share_last_2h": 0.86
+   }
+  },
+  "10% over 720 min": {
+   "uncapped": {
+    "share": 0.0065,
+    "first_alarm_min": 283.2,
+    "share_last_2h": 0.0
+   },
+   "capped": {
+    "share": 0.3429,
+    "first_alarm_min": 279.8,
+    "share_last_2h": 0.0383
+   }
+  },
+  "10% over 2880 min": {
+   "uncapped": {
+    "share": 0.0,
+    "first_alarm_min": null,
+    "share_last_2h": 0.0
+   },
+   "capped": {
+    "share": 0.0,
+    "first_alarm_min": null,
+    "share_last_2h": 0.0
+   }
+  },
+  "20% over 0 min": {
+   "uncapped": {
+    "share": 0.3333,
+    "first_alarm_min": 0.0,
+    "share_last_2h": 0.0
+   },
+   "capped": {
+    "share": 1.0,
+    "first_alarm_min": 0.0,
+    "share_last_2h": 1.0
+   }
+  },
+  "20% over 120 min": {
+   "uncapped": {
+    "share": 0.3545,
+    "first_alarm_min": 26.4,
+    "share_last_2h": 0.0
+   },
+   "capped": {
+    "share": 0.9605,
+    "first_alarm_min": 26.4,
+    "share_last_2h": 1.0
+   }
+  },
+  "20% over 720 min": {
+   "uncapped": {
+    "share": 0.3696,
+    "first_alarm_min": 143.8,
+    "share_last_2h": 0.0
+   },
+   "capped": {
+    "share": 0.8506,
+    "first_alarm_min": 143.8,
+    "share_last_2h": 1.0
+   }
+  },
+  "20% over 2880 min": {
+   "uncapped": {
+    "share": 0.0002,
+    "first_alarm_min": 1354.3333,
+    "share_last_2h": 0.0
+   },
+   "capped": {
+    "share": 0.2578,
+    "first_alarm_min": 1184.6,
+    "share_last_2h": 0.23
+   }
+  }
+ },
+ "B_pump_head_ramp": {
+  "+5% over 0 min": {
+   "uncapped": {
+    "share": 0.3178,
+    "first_alarm_min": 0.0,
+    "share_last_2h": 0.0
+   },
+   "capped": {
+    "share": 0.5589,
+    "first_alarm_min": 0.0,
+    "share_last_2h": 0.0417
+   }
+  },
+  "+5% over 120 min": {
+   "uncapped": {
+    "share": 0.225,
+    "first_alarm_min": 59.2,
+    "share_last_2h": 0.0
+   },
+   "capped": {
+    "share": 0.3995,
+    "first_alarm_min": 59.2,
+    "share_last_2h": 0.0117
+   }
+  },
+  "+5% over 720 min": {
+   "uncapped": {
+    "share": 0.0004,
+    "first_alarm_min": 344.0,
+    "share_last_2h": 0.0
+   },
+   "capped": {
+    "share": 0.0046,
+    "first_alarm_min": 386.3333,
+    "share_last_2h": 0.0
+   }
+  },
+  "+5% over 2880 min": {
+   "uncapped": {
+    "share": 0.0,
+    "first_alarm_min": null,
+    "share_last_2h": 0.0
+   },
+   "capped": {
+    "share": 0.0,
+    "first_alarm_min": null,
+    "share_last_2h": 0.0
+   }
+  },
+  "+10% over 0 min": {
+   "uncapped": {
+    "share": 0.3333,
+    "first_alarm_min": 0.0,
+    "share_last_2h": 0.0
+   },
+   "capped": {
+    "share": 1.0,
+    "first_alarm_min": 0.0,
+    "share_last_2h": 1.0
+   }
+  },
+  "+10% over 120 min": {
+   "uncapped": {
+    "share": 0.3288,
+    "first_alarm_min": 31.8,
+    "share_last_2h": 0.0
+   },
+   "capped": {
+    "share": 0.9526,
+    "first_alarm_min": 31.8,
+    "share_last_2h": 0.9983
+   }
+  },
+  "+10% over 720 min": {
+   "uncapped": {
+    "share": 0.1263,
+    "first_alarm_min": 169.4,
+    "share_last_2h": 0.0
+   },
+   "capped": {
+    "share": 0.6458,
+    "first_alarm_min": 169.4,
+    "share_last_2h": 0.2
+   }
+  },
+  "+10% over 2880 min": {
+   "uncapped": {
+    "share": 0.0,
+    "first_alarm_min": null,
+    "share_last_2h": 0.0
+   },
+   "capped": {
+    "share": 0.0,
+    "first_alarm_min": null,
+    "share_last_2h": 0.0
+   }
+  }
+ }
+}

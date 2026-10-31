@@ -1,0 +1,492 @@
+{
+ "design": "BEFORE looking at any rule output on this file:\n  A  transferred: 2015 calibration unchanged (as in swat_a6_test.py).\n  B  recalibrated on this plant: fixed medians, 1.2 x worst deviation, fitted on\n     the last hour of the normal run (13:50-14:50), skipping start-up (the A6\n     lesson). Same gates and 10 s persistence.\n  Score: hit = any alarm inside an attack window. RO attacks (#1, #5) are the\n  test; alarms during the other four are reported separately, since they can\n  have real knock-on effects on the RO stage. False alarms are measured on the\n  attack-free gaps 14:50-15:08:46 and 16:20-16:35.\n\nClock alignment, added AFTER the first run: the historian clock runs about\n105 s ahead of the attack sheet. Measured from the attacked signals alone\n(FIT401 reading the spoofed 0.5, MV501 closed, P601 on, P301 off, LIT301 >1000,\nMV201+P101 on), every attack appears 91-110 s earlier in the data than listed.\nResults are reported both as documented and with every window (attacks and\nfalse-alarm gaps) shifted by ALIGN_S. Unaligned, the real FIT401 spoof fell in\nthe first \"attack-free\" gap and was counted as a false alarm.",
+ "rows": 14996,
+ "time_range": [
+  "2019-07-20 12:30:00",
+  "2019-07-20 16:39:59.004013"
+ ],
+ "A_transferred_2015_calibration": {
+  "attacks": [
+   {
+    "id": 1,
+    "target": "FIT401 spoof 0.8 -> 0.5",
+    "ro_stage": true,
+    "seconds": 105,
+    "detected": true,
+    "share_flagged": 1.0,
+    "by": {
+     "orp_pair": 1.0
+    }
+   },
+   {
+    "id": 2,
+    "target": "LIT301 spoof 835 -> 1024",
+    "ro_stage": false,
+    "seconds": 272,
+    "detected": true,
+    "share_flagged": 1.0,
+    "by": {
+     "permeability": 0.136,
+     "orp_pair": 1.0
+    }
+   },
+   {
+    "id": 3,
+    "target": "P601 OFF -> ON",
+    "ro_stage": false,
+    "seconds": 231,
+    "detected": true,
+    "share_flagged": 1.0,
+    "by": {
+     "orp_pair": 1.0
+    }
+   },
+   {
+    "id": 4,
+    "target": "MV201 open + P101 on",
+    "ro_stage": false,
+    "seconds": 450,
+    "detected": true,
+    "share_flagged": 0.938,
+    "by": {
+     "permeability": 0.838,
+     "orp_pair": 0.482
+    }
+   },
+   {
+    "id": 5,
+    "target": "MV501 OPEN -> CLOSE",
+    "ro_stage": true,
+    "seconds": 120,
+    "detected": true,
+    "share_flagged": 0.933,
+    "by": {
+     "brine_dp": 0.508,
+     "permeability": 0.542,
+     "salt_passage": 0.392,
+     "orp_pair": 0.142
+    }
+   },
+   {
+    "id": 6,
+    "target": "P301 ON -> OFF",
+    "ro_stage": false,
+    "seconds": 802,
+    "detected": true,
+    "share_flagged": 0.571,
+    "by": {
+     "permeability": 0.571
+    }
+   }
+  ],
+  "false_alarm_rate": 0.27986,
+  "false_alarm_by": {
+   "flow_balance": 0.0079,
+   "feed_meters": 0.05183,
+   "permeability": 0.02172,
+   "orp_pair": 0.20632
+  },
+  "ro_attacks_detected": "2 of 2"
+ },
+ "B_recalibrated_on_A45": {
+  "calibration": {
+   "flow_balance": {
+    "ref": 0.08769,
+    "tol": 0.081
+   },
+   "feed_meters": {
+    "ref": -0.00205,
+    "tol": 0.00723
+   },
+   "brine_dp": {
+    "ref": 4.34278,
+    "tol": 0.01041
+   },
+   "permeability": {
+    "ref": -6.21739,
+    "tol": 0.29365
+   },
+   "salt_passage": {
+    "ref": -3.71923,
+    "tol": 0.02451
+   },
+   "orp_pair": {
+    "ref": -59.65137,
+    "tol": 4.18355
+   }
+  },
+  "attacks": [
+   {
+    "id": 1,
+    "target": "FIT401 spoof 0.8 -> 0.5",
+    "ro_stage": true,
+    "seconds": 105,
+    "detected": true,
+    "share_flagged": 0.648,
+    "by": {
+     "orp_pair": 0.648
+    }
+   },
+   {
+    "id": 2,
+    "target": "LIT301 spoof 835 -> 1024",
+    "ro_stage": false,
+    "seconds": 272,
+    "detected": false,
+    "share_flagged": 0.0,
+    "by": {}
+   },
+   {
+    "id": 3,
+    "target": "P601 OFF -> ON",
+    "ro_stage": false,
+    "seconds": 231,
+    "detected": false,
+    "share_flagged": 0.0,
+    "by": {}
+   },
+   {
+    "id": 4,
+    "target": "MV201 open + P101 on",
+    "ro_stage": false,
+    "seconds": 450,
+    "detected": true,
+    "share_flagged": 0.076,
+    "by": {
+     "brine_dp": 0.031,
+     "salt_passage": 0.044
+    }
+   },
+   {
+    "id": 5,
+    "target": "MV501 OPEN -> CLOSE",
+    "ro_stage": true,
+    "seconds": 120,
+    "detected": true,
+    "share_flagged": 1.0,
+    "by": {
+     "flow_balance": 0.492,
+     "feed_meters": 0.425,
+     "brine_dp": 0.508,
+     "permeability": 0.425,
+     "salt_passage": 0.542
+    }
+   },
+   {
+    "id": 6,
+    "target": "P301 ON -> OFF",
+    "ro_stage": false,
+    "seconds": 802,
+    "detected": true,
+    "share_flagged": 0.379,
+    "by": {
+     "brine_dp": 0.379
+    }
+   }
+  ],
+  "false_alarm_rate": 0.41362,
+  "false_alarm_by": {
+   "feed_meters": 0.05183,
+   "brine_dp": 0.3618
+  },
+  "ro_attacks_detected": "2 of 2"
+ },
+ "aligned_clock_shift_s": -105,
+ "A_aligned": {
+  "attacks": [
+   {
+    "id": 1,
+    "target": "FIT401 spoof 0.8 -> 0.5",
+    "ro_stage": true,
+    "seconds": 105,
+    "detected": true,
+    "share_flagged": 1.0,
+    "by": {
+     "feed_meters": 0.99,
+     "orp_pair": 0.01
+    }
+   },
+   {
+    "id": 2,
+    "target": "LIT301 spoof 835 -> 1024",
+    "ro_stage": false,
+    "seconds": 272,
+    "detected": true,
+    "share_flagged": 1.0,
+    "by": {
+     "permeability": 0.136,
+     "orp_pair": 1.0
+    }
+   },
+   {
+    "id": 3,
+    "target": "P601 OFF -> ON",
+    "ro_stage": false,
+    "seconds": 231,
+    "detected": true,
+    "share_flagged": 1.0,
+    "by": {
+     "orp_pair": 1.0
+    }
+   },
+   {
+    "id": 4,
+    "target": "MV201 open + P101 on",
+    "ro_stage": false,
+    "seconds": 450,
+    "detected": true,
+    "share_flagged": 0.962,
+    "by": {
+     "permeability": 0.793,
+     "orp_pair": 0.716
+    }
+   },
+   {
+    "id": 5,
+    "target": "MV501 OPEN -> CLOSE",
+    "ro_stage": true,
+    "seconds": 120,
+    "detected": true,
+    "share_flagged": 0.908,
+    "by": {
+     "brine_dp": 0.883,
+     "permeability": 0.908
+    }
+   },
+   {
+    "id": 6,
+    "target": "P301 ON -> OFF",
+    "ro_stage": false,
+    "seconds": 802,
+    "detected": true,
+    "share_flagged": 0.58,
+    "by": {
+     "permeability": 0.58
+    }
+   }
+  ],
+  "false_alarm_rate": 0.25864,
+  "false_alarm_by": {
+   "flow_balance": 0.0079,
+   "feed_meters": 0.00049,
+   "permeability": 0.05232,
+   "orp_pair": 0.20582
+  },
+  "ro_attacks_detected": "2 of 2"
+ },
+ "B_aligned": {
+  "attacks": [
+   {
+    "id": 1,
+    "target": "FIT401 spoof 0.8 -> 0.5",
+    "ro_stage": true,
+    "seconds": 105,
+    "detected": true,
+    "share_flagged": 0.99,
+    "by": {
+     "feed_meters": 0.99
+    }
+   },
+   {
+    "id": 2,
+    "target": "LIT301 spoof 835 -> 1024",
+    "ro_stage": false,
+    "seconds": 272,
+    "detected": true,
+    "share_flagged": 0.103,
+    "by": {
+     "orp_pair": 0.103
+    }
+   },
+   {
+    "id": 3,
+    "target": "P601 OFF -> ON",
+    "ro_stage": false,
+    "seconds": 231,
+    "detected": false,
+    "share_flagged": 0.0,
+    "by": {}
+   },
+   {
+    "id": 4,
+    "target": "MV201 open + P101 on",
+    "ro_stage": false,
+    "seconds": 450,
+    "detected": true,
+    "share_flagged": 0.076,
+    "by": {
+     "brine_dp": 0.031,
+     "salt_passage": 0.044
+    }
+   },
+   {
+    "id": 5,
+    "target": "MV501 OPEN -> CLOSE",
+    "ro_stage": true,
+    "seconds": 120,
+    "detected": true,
+    "share_flagged": 0.9,
+    "by": {
+     "flow_balance": 0.842,
+     "feed_meters": 0.867,
+     "brine_dp": 0.9,
+     "permeability": 0.9
+    }
+   },
+   {
+    "id": 6,
+    "target": "P301 ON -> OFF",
+    "ro_stage": false,
+    "seconds": 802,
+    "detected": true,
+    "share_flagged": 0.398,
+    "by": {
+     "brine_dp": 0.398
+    }
+   }
+  ],
+  "false_alarm_rate": 0.34798,
+  "false_alarm_by": {
+   "feed_meters": 0.00049,
+   "brine_dp": 0.34748
+  },
+  "ro_attacks_detected": "2 of 2"
+ },
+ "secondary_identity_checks_only_aligned": {
+  "note": "Secondary analysis. The identity-vs-ratio split comes from the A6 diagnosis (18 Oct), made before this file was run, but this subset was not the pre-registered score.",
+  "A_transferred": {
+   "attacks": [
+    {
+     "id": 1,
+     "target": "FIT401 spoof 0.8 -> 0.5",
+     "ro_stage": true,
+     "seconds": 105,
+     "detected": true,
+     "share_flagged": 0.99,
+     "by": {
+      "feed_meters": 0.99
+     }
+    },
+    {
+     "id": 2,
+     "target": "LIT301 spoof 835 -> 1024",
+     "ro_stage": false,
+     "seconds": 272,
+     "detected": false,
+     "share_flagged": 0.0,
+     "by": {}
+    },
+    {
+     "id": 3,
+     "target": "P601 OFF -> ON",
+     "ro_stage": false,
+     "seconds": 231,
+     "detected": false,
+     "share_flagged": 0.0,
+     "by": {}
+    },
+    {
+     "id": 4,
+     "target": "MV201 open + P101 on",
+     "ro_stage": false,
+     "seconds": 450,
+     "detected": false,
+     "share_flagged": 0.0,
+     "by": {}
+    },
+    {
+     "id": 5,
+     "target": "MV501 OPEN -> CLOSE",
+     "ro_stage": true,
+     "seconds": 120,
+     "detected": false,
+     "share_flagged": 0.0,
+     "by": {}
+    },
+    {
+     "id": 6,
+     "target": "P301 ON -> OFF",
+     "ro_stage": false,
+     "seconds": 802,
+     "detected": false,
+     "share_flagged": 0.0,
+     "by": {}
+    }
+   ],
+   "false_alarm_rate": 0.00839,
+   "false_alarm_by": {
+    "flow_balance": 0.0079,
+    "feed_meters": 0.00049
+   },
+   "ro_attacks_detected": "1 of 2"
+  },
+  "B_recalibrated": {
+   "attacks": [
+    {
+     "id": 1,
+     "target": "FIT401 spoof 0.8 -> 0.5",
+     "ro_stage": true,
+     "seconds": 105,
+     "detected": true,
+     "share_flagged": 0.99,
+     "by": {
+      "feed_meters": 0.99
+     }
+    },
+    {
+     "id": 2,
+     "target": "LIT301 spoof 835 -> 1024",
+     "ro_stage": false,
+     "seconds": 272,
+     "detected": false,
+     "share_flagged": 0.0,
+     "by": {}
+    },
+    {
+     "id": 3,
+     "target": "P601 OFF -> ON",
+     "ro_stage": false,
+     "seconds": 231,
+     "detected": false,
+     "share_flagged": 0.0,
+     "by": {}
+    },
+    {
+     "id": 4,
+     "target": "MV201 open + P101 on",
+     "ro_stage": false,
+     "seconds": 450,
+     "detected": false,
+     "share_flagged": 0.0,
+     "by": {}
+    },
+    {
+     "id": 5,
+     "target": "MV501 OPEN -> CLOSE",
+     "ro_stage": true,
+     "seconds": 120,
+     "detected": true,
+     "share_flagged": 0.9,
+     "by": {
+      "flow_balance": 0.842,
+      "feed_meters": 0.867
+     }
+    },
+    {
+     "id": 6,
+     "target": "P301 ON -> OFF",
+     "ro_stage": false,
+     "seconds": 802,
+     "detected": false,
+     "share_flagged": 0.0,
+     "by": {}
+    }
+   ],
+   "false_alarm_rate": 0.00049,
+   "false_alarm_by": {
+    "feed_meters": 0.00049
+   },
+   "ro_attacks_detected": "2 of 2"
+  }
+ }
+}

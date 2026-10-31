@@ -1,0 +1,45 @@
+{
+  "dataset": "WADI A2, Erba 82-feature subset, threshold set to 1% FPR on held-out normal",
+  "note": "causal rolling-mean smoothing of reconstruction error; window in samples = seconds (1 Hz data)",
+  "sweep": [
+    {
+      "window_s": 1,
+      "recall": 0.26,
+      "fpr": 0.0086,
+      "f1": 0.371,
+      "auc": 0.802,
+      "episodes": "8/14"
+    },
+    {
+      "window_s": 60,
+      "recall": 0.271,
+      "fpr": 0.0087,
+      "f1": 0.383,
+      "auc": 0.807,
+      "episodes": "6/14"
+    },
+    {
+      "window_s": 300,
+      "recall": 0.272,
+      "fpr": 0.0159,
+      "f1": 0.355,
+      "auc": 0.808,
+      "episodes": "5/14"
+    },
+    {
+      "window_s": 1200,
+      "recall": 0.318,
+      "fpr": 0.0408,
+      "f1": 0.32,
+      "auc": 0.764,
+      "episodes": "7/14"
+    }
+  ],
+  "conclusion": "smoothing does not help on WADI, unlike BATADAL where it raised recall from 0.48 to 0.70",
+  "erba_published": {
+    "recall": 0.68,
+    "fpr": 0.01,
+    "detector": "AEED",
+    "likely_version": "WADI A1 (2017)"
+  }
+}

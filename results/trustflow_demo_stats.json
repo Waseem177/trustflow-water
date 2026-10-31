@@ -1,0 +1,31 @@
+{
+ "ai_threshold": 0.6898,
+ "ai_false_alarm_unattacked_window": 0.006,
+ "act1": {
+  "ai_flags_raw_spoof": 1.0,
+  "ai_flags_concealed": 0.0,
+  "physics_flags_concealed": 1.0,
+  "physics_by_check": {
+   "flow balance": 0.0,
+   "salt balance": 0.0,
+   "membrane water flow": 0.256,
+   "salt passage": 0.919,
+   "brine pressure drop": 0.0,
+   "UF resistance": 0.0,
+   "ORP vs chlorine": 0.15,
+   "ORP at RO feed": 0.0
+  },
+  "physics_false_alarm_unattacked": 0.0,
+  "main_checks": [
+   "salt passage",
+   "membrane water flow"
+  ]
+ },
+ "act2": {
+  "ai_flags": 0.006,
+  "physics_flags": 0.0
+ },
+ "act3": {
+  "energy_flags": 1.0
+ }
+}

@@ -1,0 +1,133 @@
+{
+ "design": "same scenarios and metrics as\neval_alarm_hold.py part B (pump head +5% / +10%, ramps 0, 2 h, 12 h, 48 h, full\nprocess replay), energy check capped vs capped + hold.\n  Pass   adopt the hold for the energy check if its false alarms on days 30-60\n         stay at or below 0.1 episodes a day (mean over seeds) and no seed's\n         row share exceeds 1%.",
+ "seeds": [
+  5,
+  6,
+  7,
+  8,
+  9
+ ],
+ "false_alarms": {
+  "capped": {
+   "rows": {
+    "mean": 0.0,
+    "max": 0.0
+   },
+   "per_day": {
+    "mean": 0.0,
+    "max": 0.0
+   }
+  },
+  "hold": {
+   "rows": {
+    "mean": 0.0,
+    "max": 0.0
+   },
+   "per_day": {
+    "mean": 0.0,
+    "max": 0.0
+   }
+  }
+ },
+ "B_pump_head_ramp": {
+  "+5% over 0 min": {
+   "capped": {
+    "share": 0.5697,
+    "first_alarm_min": 0.0,
+    "share_last_2h": 0.0333
+   },
+   "hold": {
+    "share": 0.9889,
+    "first_alarm_min": 0.0,
+    "share_last_2h": 0.9867
+   }
+  },
+  "+5% over 120 min": {
+   "capped": {
+    "share": 0.411,
+    "first_alarm_min": 69.4,
+    "share_last_2h": 0.0067
+   },
+   "hold": {
+    "share": 0.8869,
+    "first_alarm_min": 69.4,
+    "share_last_2h": 0.9867
+   }
+  },
+  "+5% over 720 min": {
+   "capped": {
+    "share": 0.0087,
+    "first_alarm_min": 463.0,
+    "share_last_2h": 0.0
+   },
+   "hold": {
+    "share": 0.011,
+    "first_alarm_min": 463.0,
+    "share_last_2h": 0.0
+   }
+  },
+  "+5% over 2880 min": {
+   "capped": {
+    "share": 0.0,
+    "first_alarm_min": null,
+    "share_last_2h": 0.0
+   },
+   "hold": {
+    "share": 0.0,
+    "first_alarm_min": null,
+    "share_last_2h": 0.0
+   }
+  },
+  "+10% over 0 min": {
+   "capped": {
+    "share": 1.0,
+    "first_alarm_min": 0.0,
+    "share_last_2h": 1.0
+   },
+   "hold": {
+    "share": 1.0,
+    "first_alarm_min": 0.0,
+    "share_last_2h": 1.0
+   }
+  },
+  "+10% over 120 min": {
+   "capped": {
+    "share": 0.9505,
+    "first_alarm_min": 35.0,
+    "share_last_2h": 1.0
+   },
+   "hold": {
+    "share": 0.9505,
+    "first_alarm_min": 35.0,
+    "share_last_2h": 1.0
+   }
+  },
+  "+10% over 720 min": {
+   "capped": {
+    "share": 0.7247,
+    "first_alarm_min": 179.2,
+    "share_last_2h": 0.48
+   },
+   "hold": {
+    "share": 0.8024,
+    "first_alarm_min": 179.2,
+    "share_last_2h": 1.0
+   }
+  },
+  "+10% over 2880 min": {
+   "capped": {
+    "share": 0.0,
+    "first_alarm_min": null,
+    "share_last_2h": 0.0
+   },
+   "hold": {
+    "share": 0.0,
+    "first_alarm_min": null,
+    "share_last_2h": 0.0
+   }
+  }
+ },
+ "pass": {
+  "adopt": true
+ }
+}

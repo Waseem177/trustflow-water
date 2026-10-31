@@ -1,0 +1,242 @@
+{
+ "design": "Same simulator, seeds, calibration, caps,\ntolerances and attack scenarios as eval_drift.py (permeate TDS lowered, A;\npump head raised under full replay, B). Two variants, both rate-capped:\n\n  capped   the deployed design (drift_guard.cap)\n  hold     the same, plus drift_guard.cap(q=..., tol=...): a check's reference\n           does not move on rows where that check is already out of tolerance\n\n  Hold applies to every drifting check: the five with a plain deviation q - ref\n  (water and salt permeability, brine dP, UF resistance, pretreatment ORP) with\n  their trailing tolerance, RO-feed ORP against its band tolerance, and the\n  energy check against its tolerance.\n\n  Metrics  share of attack rows flagged, first alarm, share flagged in the\n           final 2 h of the attack (the one hold is meant to raise); and false\n           alarms on days 30-60 as rows and as alarm episodes per day\n           (alarms_per_day.count), since a hold can latch a harmless shift.\n  Pass     the hold is adopted only if false-alarm episodes per day do not\n           rise by more than 0.1 (mean over seeds) and no seed's false-alarm\n           row share exceeds 1%.",
+ "false_alarms": {
+  "capped": {
+   "process_rows": {
+    "mean": 0.0003,
+    "max": 0.00095
+   },
+   "energy_rows": {
+    "mean": 0.0,
+    "max": 0.0
+   },
+   "process_per_day": {
+    "mean": 0.166,
+    "max": 0.3
+   },
+   "energy_per_day": {
+    "mean": 0.0,
+    "max": 0.0
+   }
+  },
+  "hold": {
+   "process_rows": {
+    "mean": 0.0025,
+    "max": 0.00829
+   },
+   "energy_rows": {
+    "mean": 0.0,
+    "max": 0.0
+   },
+   "process_per_day": {
+    "mean": 1.306,
+    "max": 3.27
+   },
+   "energy_per_day": {
+    "mean": 0.0,
+    "max": 0.0
+   }
+  }
+ },
+ "A_permeate_TDS_ramp": {
+  "10% over 0 min": {
+   "capped": {
+    "share": 0.9881,
+    "first_alarm_min": 0.0,
+    "share_last_2h": 0.9383
+   },
+   "hold": {
+    "share": 1.0,
+    "first_alarm_min": 0.0,
+    "share_last_2h": 1.0
+   }
+  },
+  "10% over 120 min": {
+   "capped": {
+    "share": 0.8929,
+    "first_alarm_min": 47.0,
+    "share_last_2h": 0.86
+   },
+   "hold": {
+    "share": 0.9226,
+    "first_alarm_min": 47.0,
+    "share_last_2h": 1.0
+   }
+  },
+  "10% over 720 min": {
+   "capped": {
+    "share": 0.3429,
+    "first_alarm_min": 279.8,
+    "share_last_2h": 0.0383
+   },
+   "hold": {
+    "share": 0.6451,
+    "first_alarm_min": 279.8,
+    "share_last_2h": 0.9867
+   }
+  },
+  "10% over 2880 min": {
+   "capped": {
+    "share": 0.0,
+    "first_alarm_min": null,
+    "share_last_2h": 0.0
+   },
+   "hold": {
+    "share": 0.0,
+    "first_alarm_min": null,
+    "share_last_2h": 0.0
+   }
+  },
+  "20% over 0 min": {
+   "capped": {
+    "share": 1.0,
+    "first_alarm_min": 0.0,
+    "share_last_2h": 1.0
+   },
+   "hold": {
+    "share": 1.0,
+    "first_alarm_min": 0.0,
+    "share_last_2h": 1.0
+   }
+  },
+  "20% over 120 min": {
+   "capped": {
+    "share": 0.9605,
+    "first_alarm_min": 26.4,
+    "share_last_2h": 1.0
+   },
+   "hold": {
+    "share": 0.9605,
+    "first_alarm_min": 26.4,
+    "share_last_2h": 1.0
+   }
+  },
+  "20% over 720 min": {
+   "capped": {
+    "share": 0.8506,
+    "first_alarm_min": 143.8,
+    "share_last_2h": 1.0
+   },
+   "hold": {
+    "share": 0.8543,
+    "first_alarm_min": 143.8,
+    "share_last_2h": 1.0
+   }
+  },
+  "20% over 2880 min": {
+   "capped": {
+    "share": 0.2578,
+    "first_alarm_min": 1184.6,
+    "share_last_2h": 0.23
+   },
+   "hold": {
+    "share": 0.4268,
+    "first_alarm_min": 1184.6,
+    "share_last_2h": 0.9633
+   }
+  }
+ },
+ "B_pump_head_ramp": {
+  "+5% over 0 min": {
+   "capped": {
+    "share": 0.5589,
+    "first_alarm_min": 0.0,
+    "share_last_2h": 0.0417
+   },
+   "hold": {
+    "share": 0.9867,
+    "first_alarm_min": 0.0,
+    "share_last_2h": 0.9867
+   }
+  },
+  "+5% over 120 min": {
+   "capped": {
+    "share": 0.3995,
+    "first_alarm_min": 59.2,
+    "share_last_2h": 0.0117
+   },
+   "hold": {
+    "share": 0.8862,
+    "first_alarm_min": 56.4,
+    "share_last_2h": 0.9733
+   }
+  },
+  "+5% over 720 min": {
+   "capped": {
+    "share": 0.0046,
+    "first_alarm_min": 386.3333,
+    "share_last_2h": 0.0
+   },
+   "hold": {
+    "share": 0.0061,
+    "first_alarm_min": 384.6667,
+    "share_last_2h": 0.0
+   }
+  },
+  "+5% over 2880 min": {
+   "capped": {
+    "share": 0.0,
+    "first_alarm_min": null,
+    "share_last_2h": 0.0
+   },
+   "hold": {
+    "share": 0.0,
+    "first_alarm_min": null,
+    "share_last_2h": 0.0
+   }
+  },
+  "+10% over 0 min": {
+   "capped": {
+    "share": 1.0,
+    "first_alarm_min": 0.0,
+    "share_last_2h": 1.0
+   },
+   "hold": {
+    "share": 1.0,
+    "first_alarm_min": 0.0,
+    "share_last_2h": 1.0
+   }
+  },
+  "+10% over 120 min": {
+   "capped": {
+    "share": 0.9526,
+    "first_alarm_min": 31.8,
+    "share_last_2h": 0.9983
+   },
+   "hold": {
+    "share": 0.9529,
+    "first_alarm_min": 31.8,
+    "share_last_2h": 1.0
+   }
+  },
+  "+10% over 720 min": {
+   "capped": {
+    "share": 0.6458,
+    "first_alarm_min": 169.4,
+    "share_last_2h": 0.2
+   },
+   "hold": {
+    "share": 0.7993,
+    "first_alarm_min": 169.4,
+    "share_last_2h": 1.0
+   }
+  },
+  "+10% over 2880 min": {
+   "capped": {
+    "share": 0.0,
+    "first_alarm_min": null,
+    "share_last_2h": 0.0
+   },
+   "hold": {
+    "share": 0.0,
+    "first_alarm_min": null,
+    "share_last_2h": 0.0
+   }
+  }
+ },
+ "pass": {
+  "episodes_per_day_rise": 1.14,
+  "worst_seed_row_share": 0.00829,
+  "adopt": false
+ }
+}

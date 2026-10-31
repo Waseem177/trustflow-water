@@ -1,0 +1,74 @@
+{
+ "scenario": "HP pump head changed by x for 6 h from day 45; every process tag replays the genuine normal record; only the electrical meter reports the true power",
+ "seeds": 5,
+ "energy_check_false_alarms_days_30_60": {
+  "mean": 0.0,
+  "max": 0.0
+ },
+ "eight_process_checks_alarm_rate_during_attack": 0.0,
+ "share_of_attack_rows_flagged": {
+  "-20%": {
+   "onset": 1.0,
+   "running": 0.667
+  },
+  "-10%": {
+   "onset": 1.0,
+   "running": 0.667
+  },
+  "-5%": {
+   "onset": 0.994,
+   "running": 0.641
+  },
+  "-3%": {
+   "onset": 0.261,
+   "running": 0.104
+  },
+  "-2%": {
+   "onset": 0.01,
+   "running": 0.003
+  },
+  "-1%": {
+   "onset": 0.001,
+   "running": 0.0
+  },
+  "+1%": {
+   "onset": 0.001,
+   "running": 0.001
+  },
+  "+2%": {
+   "onset": 0.031,
+   "running": 0.02
+  },
+  "+3%": {
+   "onset": 0.299,
+   "running": 0.149
+  },
+  "+5%": {
+   "onset": 0.989,
+   "running": 0.636
+  },
+  "+10%": {
+   "onset": 1.0,
+   "running": 0.667
+  },
+  "+20%": {
+   "onset": 1.0,
+   "running": 0.667
+  }
+ },
+ "first_alarm_minutes_after_onset_running_seed0": {
+  "-20%": 0,
+  "-10%": 0,
+  "-5%": 0,
+  "-3%": 10,
+  "-2%": 63,
+  "-1%": null,
+  "+1%": 1,
+  "+2%": 1,
+  "+3%": 0,
+  "+5%": 0,
+  "+10%": 0,
+  "+20%": 0
+ },
+ "if_attacker_also_controls_power_meter": "nothing is caught, by construction"
+}

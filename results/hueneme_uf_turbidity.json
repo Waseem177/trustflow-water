@@ -1,0 +1,417 @@
+{
+ "design": "running on test days (20 Oct):\n  - Days: files used by hueneme_uf.py (standard 18-column CSVs, interval <= 10 s) that\n    are turbidity-valid (> 0 NTU) on >= 90% of their steady rows, in both splits.\n    Rows with turbidity <= 0.005 NTU (probe floor) are not evaluated.\n  - Steady rows, flow balance, TMP and resistance R exactly as hueneme_uf.py.\n  - Turbidity feature: x = ln(Tu), Tu smoothed by a 60 s rolling median;\n    dx = x - trailing(x) with the same 6 h window and 1 h lag, no phase bins.\n  - Turbidity-linked resistance deviation:\n        dev_T = [ ln R - trailing_phase(ln R) ] - beta * dx\n    beta = least-squares slope of the resistance deviation on dx over the training\n    turbidity-valid rows (one global value, fitted before any test day is touched).\n    The check compares ln R against reference_T = trailing_phase(ln R) + beta * dx.\n  - Tolerance from training turbidity-valid days: 1.2 x 99.9th pct of |dev_T|\n    (and 1.2 x worst, reported).\n  - Comparators, both on the SAME turbidity-valid days: (a) the existing check\n    (no turbidity term) with tolerance calibrated on the same training subset, and\n    (b) the existing check as published (all training days, results/hueneme_uf.json).\n    (a) separates the effect of the turbidity term from the effect of restricting to\n    clean-sensor days, which by itself changes the tolerance.\n  - Sensitivity: share of steady rows flagged by flow_balance OR resistance, for\n    each spoof level, sign pooled and per sign; \"smallest spoof caught on 90% of\n    rows\" = smallest level at which both signs reach >= 0.9, from the five levels.",
+ "beta": -0.01368,
+ "r2_resistance_deviation_on_turbidity_change": 0.004,
+ "files_used": {
+  "training": [
+   "20130216",
+   "20130318",
+   "20130319",
+   "20130320",
+   "20130321",
+   "20130322",
+   "20130323",
+   "20130324",
+   "20130325",
+   "20130327",
+   "20130328",
+   "20130329",
+   "20130330",
+   "20130331",
+   "20130401",
+   "20130402",
+   "20130403",
+   "20130530",
+   "20130604",
+   "20130605",
+   "20130606",
+   "20130607",
+   "20130608",
+   "20131211",
+   "20131219",
+   "20131230",
+   "20140115",
+   "20140122",
+   "20140123",
+   "20140206",
+   "20140210",
+   "20140318",
+   "20140324",
+   "20140329",
+   "20140701"
+  ],
+  "test": [
+   "20130316",
+   "20130317",
+   "20131226",
+   "20140128",
+   "20140211",
+   "20140224"
+  ]
+ },
+ "files_not_used": [
+  "training/20120308.csv: turbidity valid on 0% of steady rows",
+  "training/20120623.csv: turbidity valid on 0% of steady rows",
+  "training/20120624.csv: turbidity valid on 0% of steady rows",
+  "training/20120625.csv: turbidity valid on 0% of steady rows",
+  "training/20120630.csv: turbidity valid on 0% of steady rows",
+  "training/20120720.csv: turbidity valid on 0% of steady rows",
+  "training/20120721.csv: turbidity valid on 0% of steady rows",
+  "training/20120723.csv: turbidity valid on 0% of steady rows",
+  "training/20120724.csv: turbidity valid on 0% of steady rows",
+  "training/20120725.csv: turbidity valid on 0% of steady rows",
+  "training/20120726.csv: turbidity valid on 0% of steady rows",
+  "training/20120727.csv: turbidity valid on 0% of steady rows",
+  "training/20120728.csv: turbidity valid on 0% of steady rows",
+  "training/20120729.csv: turbidity valid on 0% of steady rows",
+  "training/20120801.csv: turbidity valid on 0% of steady rows",
+  "training/20120802.csv: turbidity valid on 0% of steady rows",
+  "training/20120803.csv: turbidity valid on 0% of steady rows",
+  "training/20120805.csv: turbidity valid on 0% of steady rows",
+  "training/20120919.csv: 2-column layout",
+  "training/20120920.csv: 2-column layout",
+  "training/20120921.csv: 2-column layout",
+  "training/20120922.csv: 2-column layout",
+  "training/20121022.csv: turbidity valid on 0% of steady rows",
+  "training/20121108.csv: turbidity valid on 0% of steady rows",
+  "training/20121113.csv: turbidity valid on 0% of steady rows",
+  "training/20121119.csv: turbidity valid on 0% of steady rows",
+  "training/20121123.csv: turbidity valid on 0% of steady rows",
+  "training/20121128.csv: turbidity valid on 0% of steady rows",
+  "training/20121129.csv: turbidity valid on 0% of steady rows",
+  "training/20121210.csv: turbidity valid on 0% of steady rows",
+  "training/20121212.csv: turbidity valid on 0% of steady rows",
+  "training/20121213.csv: turbidity valid on 0% of steady rows",
+  "training/20121227.csv: turbidity valid on 0% of steady rows",
+  "training/20121228.csv: turbidity valid on 0% of steady rows",
+  "training/20130107.csv: turbidity valid on 0% of steady rows",
+  "training/20130108.csv: turbidity valid on 0% of steady rows",
+  "training/20130226.csv: turbidity valid on 0% of steady rows",
+  "training/20130816.csv: 19-column layout",
+  "training/20130820.csv: 17-column layout",
+  "training/20130823.csv: sample interval 60 s",
+  "training/20130907.csv: sample interval 120 s",
+  "training/20130917.csv: sample interval 120 s",
+  "training/20130918.csv: sample interval 120 s",
+  "training/20131002.csv: sample interval 60 s",
+  "training/20131009.csv: sample interval 60 s",
+  "training/20131023.csv: sample interval 60 s",
+  "training/20131102.csv: sample interval 60 s",
+  "training/20131112.csv: sample interval 60 s",
+  "training/20140421.csv: turbidity valid on 0% of steady rows",
+  "training/20140422.csv: turbidity valid on 0% of steady rows",
+  "training/20140423.csv: turbidity valid on 0% of steady rows",
+  "training/20140425.csv: turbidity valid on 0% of steady rows",
+  "training/20140426.csv: turbidity valid on 0% of steady rows",
+  "training/20140427.csv: turbidity valid on 0% of steady rows",
+  "training/20140502.csv: turbidity valid on 0% of steady rows",
+  "training/20140515.csv: turbidity valid on 0% of steady rows",
+  "training/20140522.csv: turbidity valid on 0% of steady rows",
+  "training/20140523.csv: turbidity valid on 0% of steady rows",
+  "training/20140529.csv: turbidity valid on 0% of steady rows",
+  "training/20140613.csv: turbidity valid on 0% of steady rows",
+  "training/20140626.csv: turbidity valid on 0% of steady rows",
+  "training/20140627.csv: turbidity valid on 0% of steady rows",
+  "training/20140628.csv: turbidity valid on 0% of steady rows",
+  "training/20140629.csv: turbidity valid on 0% of steady rows",
+  "training/20140630.csv: turbidity valid on 0% of steady rows",
+  "training/20140702.csv: turbidity valid on 0% of steady rows",
+  "training/20140703.csv: turbidity valid on 0% of steady rows",
+  "training/20140704.csv: turbidity valid on 0% of steady rows",
+  "training/20140705.csv: 18-column layout",
+  "training/20140707.csv: turbidity valid on 0% of steady rows",
+  "training/20140708.csv: turbidity valid on 0% of steady rows",
+  "training/20140728.csv: turbidity valid on 0% of steady rows",
+  "training/20140729.csv: turbidity valid on 0% of steady rows",
+  "training/20140818.csv: turbidity valid on 0% of steady rows",
+  "training/20140819.csv: turbidity valid on 0% of steady rows",
+  "training/20140820.csv: turbidity valid on 0% of steady rows",
+  "training/20140822.csv: turbidity valid on 0% of steady rows",
+  "training/20140826.csv: turbidity valid on 0% of steady rows",
+  "training/20140829.csv: turbidity valid on 0% of steady rows",
+  "training/20140915.csv: turbidity valid on 0% of steady rows",
+  "training/20140917.csv: turbidity valid on 0% of steady rows",
+  "training/20140923.csv: turbidity valid on 0% of steady rows",
+  "training/20140929.csv: turbidity valid on 0% of steady rows",
+  "training/20141001.csv: turbidity valid on 0% of steady rows",
+  "training/20141002.csv: turbidity valid on 0% of steady rows",
+  "training/20141229.csv: turbidity valid on 0% of steady rows",
+  "training/20141230.csv: turbidity valid on 0% of steady rows",
+  "training/20150115.csv: turbidity valid on 0% of steady rows",
+  "training/20150127.csv: turbidity valid on 0% of steady rows",
+  "training/20150205.csv: turbidity valid on 0% of steady rows",
+  "training/20150210.csv: turbidity valid on 0% of steady rows",
+  "training/20150224.csv: turbidity valid on 0% of steady rows",
+  "training/20150303.csv: turbidity valid on 0% of steady rows",
+  "training/20150310.csv: turbidity valid on 0% of steady rows",
+  "training/20150316.csv: turbidity valid on 0% of steady rows",
+  "training/20150317.csv: turbidity valid on 0% of steady rows",
+  "training/20150323.csv: turbidity valid on 0% of steady rows",
+  "training/20150330.csv: turbidity valid on 0% of steady rows",
+  "training/20150401.csv: turbidity valid on 0% of steady rows",
+  "test/20120325.csv: turbidity valid on 0% of steady rows",
+  "test/20120701.csv: turbidity valid on 0% of steady rows",
+  "test/20120702.csv: turbidity valid on 0% of steady rows",
+  "test/20120806.csv: turbidity valid on 0% of steady rows",
+  "test/20120926.csv: 2-column layout",
+  "test/20121022.csv: turbidity valid on 0% of steady rows",
+  "test/20121203.csv: turbidity valid on 0% of steady rows",
+  "test/20130626.csv: turbidity valid on 0% of steady rows",
+  "test/20130818.csv: 20-column layout",
+  "test/20130910.csv: sample interval 120 s",
+  "test/20131014.csv: turbidity valid on 0% of steady rows",
+  "test/20140420.csv: turbidity valid on 0% of steady rows",
+  "test/20140505.csv: turbidity valid on 0% of steady rows",
+  "test/20140625.csv: turbidity valid on 0% of steady rows",
+  "test/20140730.csv: turbidity valid on 0% of steady rows",
+  "test/20150122.csv: turbidity valid on 0% of steady rows",
+  "test/20150217.csv: turbidity valid on 0% of steady rows",
+  "test/20150402.csv: turbidity valid on 0% of steady rows"
+ ],
+ "tolerances": {
+  "flow_balance": {
+   "worst": 0.68118,
+   "p999": 0.1393,
+   "sd": 0.02186,
+   "rows": 550668
+  },
+  "uf_res_existing": {
+   "worst": 3.60503,
+   "p999": 0.24895,
+   "sd": 0.03348,
+   "rows": 535086
+  },
+  "uf_res_turbidity": {
+   "worst": 3.61046,
+   "p999": 0.24818,
+   "sd": 0.03336,
+   "rows": 535086
+  }
+ },
+ "false_alarms": {
+  "turbidity": {
+   "worst": {
+    "resistance": 0.0,
+    "any": 0.0,
+    "rows": {
+     "resistance": 93311,
+     "any": 96127
+    }
+   },
+   "p999": {
+    "resistance": 0.0,
+    "any": 0.0,
+    "rows": {
+     "resistance": 93311,
+     "any": 96127
+    }
+   }
+  },
+  "existing_same_days": {
+   "worst": {
+    "resistance": 0.0,
+    "any": 0.0,
+    "rows": {
+     "resistance": 93311,
+     "any": 96127
+    }
+   },
+   "p999": {
+    "resistance": 0.0,
+    "any": 0.0,
+    "rows": {
+     "resistance": 93311,
+     "any": 96127
+    }
+   }
+  }
+ },
+ "sensitivity_flow_or_resistance": {
+  "turbidity": {
+   "worst": {
+    "FT-100": {
+     "+2%": 0.0,
+     "-2%": 0.0,
+     "+5%": 0.0,
+     "-5%": 0.0,
+     "+10%": 0.0,
+     "-10%": 0.0,
+     "+20%": 0.0,
+     "-20%": 0.0,
+     "+50%": 0.0,
+     "-50%": 0.99
+    },
+    "TMP": {
+     "+2%": 0.0,
+     "-2%": 0.0,
+     "+5%": 0.0,
+     "-5%": 0.0,
+     "+10%": 0.0,
+     "-10%": 0.0,
+     "+20%": 0.0,
+     "-20%": 0.0,
+     "+50%": 0.0,
+     "-50%": 0.0
+    }
+   },
+   "p999": {
+    "FT-100": {
+     "+2%": 0.0,
+     "-2%": 0.0,
+     "+5%": 0.0,
+     "-5%": 0.0,
+     "+10%": 0.006,
+     "-10%": 0.01,
+     "+20%": 0.918,
+     "-20%": 0.995,
+     "+50%": 1.0,
+     "-50%": 0.994
+    },
+    "TMP": {
+     "+2%": 0.0,
+     "-2%": 0.0,
+     "+5%": 0.0,
+     "-5%": 0.0,
+     "+10%": 0.0,
+     "-10%": 0.0,
+     "+20%": 0.004,
+     "-20%": 0.207,
+     "+50%": 0.998,
+     "-50%": 1.0
+    }
+   }
+  },
+  "existing_same_days": {
+   "worst": {
+    "FT-100": {
+     "+2%": 0.0,
+     "-2%": 0.0,
+     "+5%": 0.0,
+     "-5%": 0.0,
+     "+10%": 0.0,
+     "-10%": 0.0,
+     "+20%": 0.0,
+     "-20%": 0.0,
+     "+50%": 0.0,
+     "-50%": 0.99
+    },
+    "TMP": {
+     "+2%": 0.0,
+     "-2%": 0.0,
+     "+5%": 0.0,
+     "-5%": 0.0,
+     "+10%": 0.0,
+     "-10%": 0.0,
+     "+20%": 0.0,
+     "-20%": 0.0,
+     "+50%": 0.0,
+     "-50%": 0.0
+    }
+   },
+   "p999": {
+    "FT-100": {
+     "+2%": 0.0,
+     "-2%": 0.0,
+     "+5%": 0.0,
+     "-5%": 0.0,
+     "+10%": 0.006,
+     "-10%": 0.01,
+     "+20%": 0.918,
+     "-20%": 0.995,
+     "+50%": 1.0,
+     "-50%": 0.994
+    },
+    "TMP": {
+     "+2%": 0.0,
+     "-2%": 0.0,
+     "+5%": 0.0,
+     "-5%": 0.0,
+     "+10%": 0.0,
+     "-10%": 0.0,
+     "+20%": 0.004,
+     "-20%": 0.203,
+     "+50%": 0.998,
+     "-50%": 1.0
+    }
+   }
+  }
+ },
+ "sensitivity_resistance_only_p999": {
+  "turbidity": {
+   "FT-100": {
+    "+2%": 0.0,
+    "-2%": 0.0,
+    "+5%": 0.0,
+    "-5%": 0.0,
+    "+10%": 0.0,
+    "-10%": 0.0,
+    "+20%": 0.016,
+    "-20%": 0.096,
+    "+50%": 0.995,
+    "-50%": 0.994
+   },
+   "TMP": {
+    "+2%": 0.0,
+    "-2%": 0.0,
+    "+5%": 0.0,
+    "-5%": 0.0,
+    "+10%": 0.0,
+    "-10%": 0.0,
+    "+20%": 0.004,
+    "-20%": 0.207,
+    "+50%": 0.998,
+    "-50%": 1.0
+   }
+  },
+  "existing_same_days": {
+   "FT-100": {
+    "+2%": 0.0,
+    "-2%": 0.0,
+    "+5%": 0.0,
+    "-5%": 0.0,
+    "+10%": 0.0,
+    "-10%": 0.0,
+    "+20%": 0.013,
+    "-20%": 0.092,
+    "+50%": 0.995,
+    "-50%": 0.994
+   },
+   "TMP": {
+    "+2%": 0.0,
+    "-2%": 0.0,
+    "+5%": 0.0,
+    "-5%": 0.0,
+    "+10%": 0.0,
+    "-10%": 0.0,
+    "+20%": 0.004,
+    "-20%": 0.203,
+    "+50%": 0.998,
+    "-50%": 1.0
+   }
+  }
+ },
+ "summary_p999": {
+  "turbidity": {
+   "FT-100": {
+    "smallest_spoof_caught_90pct_both_signs": "20%"
+   },
+   "TMP": {
+    "smallest_spoof_caught_90pct_both_signs": "50%"
+   },
+   "false_alarm_any_p999": 0.0
+  },
+  "existing_same_days": {
+   "FT-100": {
+    "smallest_spoof_caught_90pct_both_signs": "20%"
+   },
+   "TMP": {
+    "smallest_spoof_caught_90pct_both_signs": "50%"
+   },
+   "false_alarm_any_p999": 0.0
+  }
+ },
+ "published_check_all_days": {
+  "source": "results/hueneme_uf.json",
+  "note": "1.2 x p99.9 rule, 118 train / 21 test files, pooled signs"
+ }
+}

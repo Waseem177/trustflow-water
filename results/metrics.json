@@ -1,0 +1,39 @@
+{
+  "seed": 42,
+  "epochs_ran": 100,
+  "best_val_mse": 0.02427043206989765,
+  "threshold": 0.14146773517131805,
+  "threshold_pctile": 99.5,
+  "results": [
+    {
+      "set": "test_1",
+      "n": 18433,
+      "n_attacks": 1968,
+      "roc_auc": 0.8758,
+      "pr_auc": 0.7407,
+      "precision": 0.886,
+      "recall": 0.6519,
+      "f1": 0.7512,
+      "tp": 1283,
+      "fp": 165,
+      "fn": 685,
+      "tn": 16300,
+      "fp_rate": 0.01
+    },
+    {
+      "set": "test_2",
+      "n": 10081,
+      "n_attacks": 1628,
+      "roc_auc": 0.8893,
+      "pr_auc": 0.7408,
+      "precision": 0.9303,
+      "recall": 0.4754,
+      "f1": 0.6293,
+      "tp": 774,
+      "fp": 58,
+      "fn": 854,
+      "tn": 8395,
+      "fp_rate": 0.0069
+    }
+  ]
+}

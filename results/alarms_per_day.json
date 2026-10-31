@@ -1,0 +1,131 @@
+{
+ "design": "Episode   a maximal run of consecutive flagged rows (any check), on attack-free\n            rows only. Primary count, conservative.\n  Merged    runs closer than MERGE_S = 300 s counted as one alarm, the way an\n            alarm that clears and re-trips within 5 minutes reaches an operator\n            once. Secondary.\n  Per day   episodes / (attack-free rows x sample interval / 86,400 s).\n  Settings  exactly the deployed ones of each source script: SWaT 2015 10 s\n            persistence and its calibration; SWaT Jul 2019 variant B (recalibrated)\n            with the 105 s clock alignment, on its two attack-free gaps; the\n            simulator's trailing references on days 30-60 of seeds 0-4.\n  Added after the first run: the July 2019 count for the two identity checks\n            only (flow balance, redundant meters), the subset the report claims\n            for that plant; the six-check count stays alongside it.\n  Also added after the first run (post hoc, so secondary): SWaT 2015 attack-file\n            episodes split by whether they start within AFTERMATH_S = 300 s of an\n            attack's labelled end, when the plant is still settling.\n  Zeros     Port Hueneme and the energy check flagged 0 rows in their own runs\n            (results/hueneme_uf.json, results/energy_check.json), so 0 episodes.\n  ISA-18.2 guidance for comparison: about 1 alarm per 10 minutes per operator\n  (144 a day) is \"manageable\"; these counts are for one RO train.",
+ "swat_2015": {
+  "heldout_normal": {
+   "days": 1.719,
+   "flagged_rows": 0,
+   "episodes": 0,
+   "episodes_per_day": 0.0,
+   "merged_alarms": 0,
+   "merged_per_day": 0.0,
+   "median_episode_s": null,
+   "longest_episode_s": null
+  },
+  "attack_file_normal_rows": {
+   "days": 4.575,
+   "flagged_rows": 801,
+   "episodes": 14,
+   "episodes_per_day": 3.06,
+   "merged_alarms": 8,
+   "merged_per_day": 1.75,
+   "median_episode_s": 36.5,
+   "longest_episode_s": 160.0
+  },
+  "attack_file_split_post_hoc": {
+   "within_300s_after_an_attack": 12,
+   "in_quiet_operation": 2,
+   "quiet_operation_per_day": 0.44
+  }
+ },
+ "swat_jul_2019_recalibrated": {
+  "identity_checks": {
+   "days": 0.023,
+   "flagged_rows": 1,
+   "episodes": 1,
+   "episodes_per_day": 42.65,
+   "merged_alarms": 1,
+   "merged_per_day": 42.65,
+   "median_episode_s": 1.0,
+   "longest_episode_s": 1.0
+  },
+  "all_six_checks": {
+   "days": 0.023,
+   "flagged_rows": 705,
+   "episodes": 22,
+   "episodes_per_day": 938.2,
+   "merged_alarms": 2,
+   "merged_per_day": 85.29,
+   "median_episode_s": 24.5,
+   "longest_episode_s": 104.0
+  },
+  "note": "only 34 attack-free minutes in this release; per-day figures are extrapolations"
+ },
+ "simulator_process_checks": {
+  "per_seed": [
+   {
+    "days": 30.0,
+    "flagged_rows": 2,
+    "episodes": 2,
+    "episodes_per_day": 0.07,
+    "merged_alarms": 2,
+    "merged_per_day": 0.07,
+    "median_episode_s": 60.0,
+    "longest_episode_s": 60.0
+   },
+   {
+    "days": 30.0,
+    "flagged_rows": 41,
+    "episodes": 9,
+    "episodes_per_day": 0.3,
+    "merged_alarms": 9,
+    "merged_per_day": 0.3,
+    "median_episode_s": 240.0,
+    "longest_episode_s": 540.0
+   },
+   {
+    "days": 30.0,
+    "flagged_rows": 8,
+    "episodes": 4,
+    "episodes_per_day": 0.13,
+    "merged_alarms": 4,
+    "merged_per_day": 0.13,
+    "median_episode_s": 120.0,
+    "longest_episode_s": 180.0
+   },
+   {
+    "days": 30.0,
+    "flagged_rows": 11,
+    "episodes": 9,
+    "episodes_per_day": 0.3,
+    "merged_alarms": 7,
+    "merged_per_day": 0.23,
+    "median_episode_s": 60.0,
+    "longest_episode_s": 120.0
+   },
+   {
+    "days": 30.0,
+    "flagged_rows": 1,
+    "episodes": 1,
+    "episodes_per_day": 0.03,
+    "merged_alarms": 1,
+    "merged_per_day": 0.03,
+    "median_episode_s": 60.0,
+    "longest_episode_s": 60.0
+   }
+  ],
+  "episodes_per_day_mean": 0.17,
+  "episodes_per_day_worst": 0.3,
+  "merged_per_day_mean": 0.15,
+  "merged_per_day_worst": 0.3
+ },
+ "port_hueneme_p999": {
+  "false_alarm_rate": {
+   "flow_balance": 0.0,
+   "uf_resistance": 0.0,
+   "any": 0.0
+  },
+  "steady_test_rows": {
+   "flow_balance": 177401,
+   "uf_resistance": 167007,
+   "any": 199547
+  },
+  "episodes": 0
+ },
+ "energy_check_sim": {
+  "false_alarm_rate": {
+   "mean": 0.0,
+   "max": 0.0
+  },
+  "episodes": 0
+ }
+}

@@ -1,0 +1,230 @@
+{
+ "design": "BEFORE looking at the attack windows:\n  A  transferred: 2015 calibration unchanged. Trailing references need 1.5 h\n     of data plus a 1 h lag, so the drifting checks only start at ~12:35.\n  B  recalibrated on this plant: calibrate on 10:05-11:15, measure false\n     alarms on 11:15-12:30 and 13:30-13:45. Within 3.7 h there is no membrane\n     drift to track, so all six checks use fixed medians. Same 1.2 x worst\n     rule, same steady-state and flow gates, same 10 s persistence.\n  Scoring: hit = any alarm inside a burst window [start, start+3 min).\n  Alarms in the 10 min \"sleep\" after each burst are reported separately,\n  since a disruption can outlast its burst.",
+ "A_transferred_2015_calibration": {
+  "bursts": [
+   {
+    "start": "12:30:00",
+    "detected": false,
+    "share_flagged": 0.0,
+    "by": {}
+   },
+   {
+    "start": "12:43:00",
+    "detected": true,
+    "share_flagged": 1.0,
+    "by": {
+     "salt_passage": 0.978,
+     "orp_pair": 1.0
+    }
+   },
+   {
+    "start": "12:56:00",
+    "detected": true,
+    "share_flagged": 1.0,
+    "by": {
+     "salt_passage": 1.0,
+     "orp_pair": 1.0
+    }
+   },
+   {
+    "start": "13:09:00",
+    "detected": true,
+    "share_flagged": 1.0,
+    "by": {
+     "salt_passage": 0.633,
+     "orp_pair": 1.0
+    }
+   },
+   {
+    "start": "13:22:00",
+    "detected": true,
+    "share_flagged": 1.0,
+    "by": {
+     "salt_passage": 0.694,
+     "orp_pair": 1.0
+    }
+   }
+  ],
+  "sleeps": [
+   {
+    "start": "12:33:00",
+    "detected": true,
+    "share_flagged": 0.802,
+    "by": {
+     "salt_passage": 0.302,
+     "orp_pair": 0.802
+    }
+   },
+   {
+    "start": "12:46:00",
+    "detected": true,
+    "share_flagged": 1.0,
+    "by": {
+     "salt_passage": 0.733,
+     "orp_pair": 1.0
+    }
+   },
+   {
+    "start": "12:59:00",
+    "detected": true,
+    "share_flagged": 1.0,
+    "by": {
+     "salt_passage": 0.928,
+     "orp_pair": 1.0
+    }
+   },
+   {
+    "start": "13:12:00",
+    "detected": true,
+    "share_flagged": 1.0,
+    "by": {
+     "salt_passage": 0.863,
+     "orp_pair": 1.0
+    }
+   },
+   {
+    "start": "13:25:00",
+    "detected": true,
+    "share_flagged": 0.803,
+    "by": {
+     "salt_passage": 0.245,
+     "orp_pair": 0.74
+    }
+   }
+  ],
+  "false_alarm_rate": 0.11739,
+  "false_alarm_by": {
+   "salt_passage": 0.02574,
+   "orp_pair": 0.11016
+  },
+  "exfiltration_phase_alarm_rate": 0.0,
+  "bursts_detected": "4 of 5"
+ },
+ "B_recalibrated_on_A6": {
+  "calibration": {
+   "flow_balance": {
+    "ref": 0.02968,
+    "tol": 0.06141
+   },
+   "feed_meters": {
+    "ref": -0.00631,
+    "tol": 0.02645
+   },
+   "brine_dp": {
+    "ref": 3.75015,
+    "tol": 0.02521
+   },
+   "permeability": {
+    "ref": -5.18291,
+    "tol": 0.04937
+   },
+   "salt_passage": {
+    "ref": -3.52776,
+    "tol": 0.91947
+   },
+   "orp_pair": {
+    "ref": 0.0,
+    "tol": 6.9213
+   }
+  },
+  "bursts": [
+   {
+    "start": "12:30:00",
+    "detected": true,
+    "share_flagged": 1.0,
+    "by": {
+     "orp_pair": 1.0
+    }
+   },
+   {
+    "start": "12:43:00",
+    "detected": true,
+    "share_flagged": 1.0,
+    "by": {
+     "orp_pair": 1.0
+    }
+   },
+   {
+    "start": "12:56:00",
+    "detected": true,
+    "share_flagged": 1.0,
+    "by": {
+     "orp_pair": 1.0
+    }
+   },
+   {
+    "start": "13:09:00",
+    "detected": true,
+    "share_flagged": 1.0,
+    "by": {
+     "orp_pair": 1.0
+    }
+   },
+   {
+    "start": "13:22:00",
+    "detected": true,
+    "share_flagged": 1.0,
+    "by": {
+     "orp_pair": 1.0
+    }
+   }
+  ],
+  "sleeps": [
+   {
+    "start": "12:33:00",
+    "detected": true,
+    "share_flagged": 1.0,
+    "by": {
+     "orp_pair": 1.0
+    }
+   },
+   {
+    "start": "12:46:00",
+    "detected": true,
+    "share_flagged": 1.0,
+    "by": {
+     "orp_pair": 1.0
+    }
+   },
+   {
+    "start": "12:59:00",
+    "detected": true,
+    "share_flagged": 1.0,
+    "by": {
+     "orp_pair": 1.0
+    }
+   },
+   {
+    "start": "13:12:00",
+    "detected": true,
+    "share_flagged": 1.0,
+    "by": {
+     "orp_pair": 1.0
+    }
+   },
+   {
+    "start": "13:25:00",
+    "detected": true,
+    "share_flagged": 1.0,
+    "by": {
+     "orp_pair": 1.0
+    }
+   }
+  ],
+  "false_alarm_rate": 0.84429,
+  "false_alarm_by": {
+   "orp_pair": 0.84429
+  },
+  "exfiltration_phase_alarm_rate": 0.0,
+  "bursts_detected": "5 of 5"
+ },
+ "diagnosis_after_scoring": {
+  "verdict": "Not a valid test of RO-stage detection. The disruption bursts switched UF/backwash and upstream actuators (MV301, MV303, P301, P602, P101, P201, P203; P3_STATE sequence changes) and left stages P4-P5 unchanged (P4_STATE, P5_STATE constant). The RO-stage alarms in both variants come from slow drift, not the attack: the plant was still settling after start-up (feed conductivity AIT503 rose 29 -> 46 uS/cm over ~90 min; RO-feed ORP AIT502 drifted 190 -> 207 mV all session).",
+  "what_it_does_show": [
+   "The two pure identities (flow balance, feed meters) transferred from 2015 to a reconfigured 2019 plant (recirculation off, feed conductivity 45 vs 268 uS/cm) with no alarm at any point in A6.",
+   "Ratio and ORP checks need settled-plant calibration over hours; a 3.7 h recording that starts at plant start-up cannot support them. Variant B (calibrated on 70 min of start-up) false-alarmed on 84% of its test window.",
+   "AIT402 reads 195.05 mV +/- 0.05 all session: likely a stuck sensor, which the current checks do not flag as such."
+  ],
+  "note": "Diagnosis done after the pre-registered scoring; the scores above are left as recorded."
+ }
+}

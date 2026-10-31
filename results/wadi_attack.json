@@ -1,0 +1,12 @@
+{
+  "dataset": "WADI A2, 82 features",
+  "attacked_timesteps": 9977,
+  "recall_before": 0.26,
+  "recall_after": 0.1496,
+  "detected_before": 2594,
+  "detected_after": 1493,
+  "newly_hidden_by_attack": 1101,
+  "share_of_caught_timesteps_hidden": 0.4244,
+  "median_error_before": 0.12335,
+  "median_error_after": 0.00047
+}

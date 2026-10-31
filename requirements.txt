@@ -1,0 +1,10 @@
+torch==2.12.1
+numpy==2.5.0
+pandas==3.0.5
+scipy==1.18.1
+scikit-learn==1.9.1
+matplotlib==3.11.2
+seaborn==0.13.2
+joblib==1.6.0
+openpyxl==3.1.5
+python-docx==1.2.0

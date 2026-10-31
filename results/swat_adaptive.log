@@ -1,0 +1,46 @@
+detector trained (195 epochs), threshold 0.5362
+detector: {'false_alarms_normal_heldout': 0.005, 'false_alarms_attackfile_normal_rows': 0.09113, 'recall_all_attack_rows': 0.6966, 'recall_ro_attack_rows': 0.7358, 'ro_attack_rows': 3286, 'ro_rows_caught': 2418, 'ro_episodes_caught': '7 of 9'}
+naive attack on 2418 rows
+    step 300
+    step 1000
+    step 3000
+    step 10000
+    step 20000
+    step 30000
+  naive       300 steps: hidden 198, evading both (10 s) 64
+  naive      1000 steps: hidden 202, evading both (10 s) 65
+  naive      3000 steps: hidden 208, evading both (10 s) 64
+  naive     10000 steps: hidden 2386, evading both (10 s) 892
+  naive     20000 steps: hidden 2418, evading both (10 s) 924
+  naive     30000 steps: hidden 2418, evading both (10 s) 1053
+adaptive attack on 2418 rows
+    step 300
+    step 1000
+    step 3000
+    step 10000
+    step 20000
+    step 30000
+  adaptive    300 steps: hidden 198, evading both (10 s) 64
+  adaptive   1000 steps: hidden 202, evading both (10 s) 65
+  adaptive   3000 steps: hidden 208, evading both (10 s) 67
+  adaptive  10000 steps: hidden 2416, evading both (10 s) 1051
+  adaptive  20000 steps: hidden 2418, evading both (10 s) 1053
+  adaptive  30000 steps: hidden 2418, evading both (10 s) 1053
+{
+ "naive_hidden": 2418,
+ "naive_evading_both_10s": 1053,
+ "adaptive_evading_both_10s": 1053,
+ "adaptive_over_naive_hidden": 0.435,
+ "criterion": "insufficient if > 0.5",
+ "verdict": "physics layer passes the pre-set criterion",
+ "runtime_s": 748.9
+}
+#10 Set value of FIT-401 as <0.7                  caught  161 | naive: hidden 161, evade both 161 {'brine_dp': 0.01} | adaptive: hidden 161, evade both 161 {}
+#11 Set value of FIT-401 as 0                     caught  561 | naive: hidden 561, evade both 47 {'orp_pair': 0.92} | adaptive: hidden 561, evade both 47 {'orp_pair': 0.92}
+#19 Set value of AIT-504 to 16 uS/cm              caught    0
+#20 Set value of AIT-504 to 255 uS/cm             caught    0
+#22 Stop UV-401; Value of AIT502 set as 150; Forc caught  458 | naive: hidden 458, evade both 56 {'orp_pair': 0.88} | adaptive: hidden 458, evade both 56 {'orp_pair': 0.88}
+#37 Close P-501; Set value of FIT-502 to 1.29  at caught  428 | naive: hidden 428, evade both 242 {'salt_passage': 0.43} | adaptive: hidden 428, evade both 242 {'salt_passage': 0.43}
+#38 Set value of AIT402 as 260; Set value of AIT5 caught  152 | naive: hidden 152, evade both 26 {'orp_pair': 0.83} | adaptive: hidden 152, evade both 26 {'orp_pair': 0.83}
+#39 Set value of FIT-401 as 0.5; Set value of AIT caught  388 | naive: hidden 388, evade both 388 {} | adaptive: hidden 388, evade both 388 {}
+#40 Set value of FIT-401 as 0                     caught  271 | naive: hidden 271, evade both 134 {'orp_pair': 0.51} | adaptive: hidden 271, evade both 134 {'orp_pair': 0.51}

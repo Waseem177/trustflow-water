@@ -1,0 +1,864 @@
+{
+ "setup": {
+  "calibration_rows": 346500,
+  "margin": 1.2,
+  "persist_s": [
+   1,
+   10
+  ],
+  "steady_s": 300,
+  "flow_gate_m3h": 0.5,
+  "trailing": {
+   "window_s": 21600,
+   "lag_s": 3600,
+   "applies_to": [
+    "brine_dp",
+    "permeability",
+    "salt_passage",
+    "orp_pair"
+   ]
+  },
+  "note": "SWaT is fresh water (~270 uS/cm); salinity physics of SWRO not tested here. Gating and trailing choices were made after seeing the first version's misses on this attack file, so it is not a clean test set for them."
+ },
+ "calibration": {
+  "flow_balance": {
+   "ref": 0.01336,
+   "tol": 0.07655
+  },
+  "feed_meters": {
+   "ref": -0.00963,
+   "tol": 0.05425
+  },
+  "brine_dp": {
+   "ref": null,
+   "tol": 0.03596
+  },
+  "permeability": {
+   "ref": null,
+   "tol": 0.09131
+  },
+  "salt_passage": {
+   "ref": null,
+   "tol": 0.1638
+  },
+  "orp_pair": {
+   "ref": null,
+   "tol": 6.21372
+  }
+ },
+ "persist_1s": {
+  "false_alarms_normal_heldout": {
+   "any": 0.0,
+   "flow_balance": 0.0,
+   "feed_meters": 0.0,
+   "brine_dp": 0.0,
+   "permeability": 0.0,
+   "salt_passage": 0.0,
+   "orp_pair": 0.0
+  },
+  "false_alarms_attackfile_normal_rows": {
+   "any": 0.00208,
+   "flow_balance": 0.00011,
+   "feed_meters": 0.00025,
+   "brine_dp": 1e-05,
+   "permeability": 0.0001,
+   "salt_passage": 0.00048,
+   "orp_pair": 0.00125
+  },
+  "episodes": [
+   {
+    "id": 1,
+    "point": "MV-101",
+    "attack": "Open MV-101",
+    "ro_sensor_attack": false,
+    "seconds": 940,
+    "detected": false,
+    "share_of_rows_flagged": 0.0,
+    "by": {}
+   },
+   {
+    "id": 2,
+    "point": "P-102",
+    "attack": "Turn on P-102",
+    "ro_sensor_attack": false,
+    "seconds": 443,
+    "detected": false,
+    "share_of_rows_flagged": 0.0,
+    "by": {}
+   },
+   {
+    "id": 3,
+    "point": "LIT-101",
+    "attack": "Increase by 1 mm every second",
+    "ro_sensor_attack": false,
+    "seconds": 383,
+    "detected": false,
+    "share_of_rows_flagged": 0.0,
+    "by": {}
+   },
+   {
+    "id": 4,
+    "point": "MV-504",
+    "attack": "Open MV-504",
+    "ro_sensor_attack": false,
+    "seconds": 390,
+    "detected": false,
+    "share_of_rows_flagged": 0.0,
+    "by": {}
+   },
+   {
+    "id": 6,
+    "point": "AIT-202",
+    "attack": "Set value of AIT-202  as 6",
+    "ro_sensor_attack": false,
+    "seconds": 196,
+    "detected": false,
+    "share_of_rows_flagged": 0.0,
+    "by": {}
+   },
+   {
+    "id": 7,
+    "point": "LIT-301",
+    "attack": "Water level increased above HH",
+    "ro_sensor_attack": false,
+    "seconds": 429,
+    "detected": false,
+    "share_of_rows_flagged": 0.0,
+    "by": {}
+   },
+   {
+    "id": 8,
+    "point": "DPIT-301",
+    "attack": "Set value of DPIT as >40kpa",
+    "ro_sensor_attack": false,
+    "seconds": 964,
+    "detected": false,
+    "share_of_rows_flagged": 0.0,
+    "by": {}
+   },
+   {
+    "id": 10,
+    "point": "FIT-401",
+    "attack": "Set value of FIT-401 as <0.7",
+    "ro_sensor_attack": true,
+    "seconds": 161,
+    "detected": true,
+    "share_of_rows_flagged": 1.0,
+    "by": {
+     "feed_meters": 1.0
+    }
+   },
+   {
+    "id": 11,
+    "point": "FIT-401",
+    "attack": "Set value of FIT-401 as 0",
+    "ro_sensor_attack": true,
+    "seconds": 561,
+    "detected": true,
+    "share_of_rows_flagged": 1.0,
+    "by": {
+     "feed_meters": 0.968,
+     "orp_pair": 0.032
+    }
+   },
+   {
+    "id": 13,
+    "point": "MV-304",
+    "attack": "Close MV-304",
+    "ro_sensor_attack": false,
+    "seconds": 233,
+    "detected": false,
+    "share_of_rows_flagged": 0.0,
+    "by": {}
+   },
+   {
+    "id": 14,
+    "point": "Mv-303",
+    "attack": "Do not let MV-303 open",
+    "ro_sensor_attack": false,
+    "seconds": 431,
+    "detected": false,
+    "share_of_rows_flagged": 0.0,
+    "by": {}
+   },
+   {
+    "id": 16,
+    "point": "LIT-301",
+    "attack": "Decrease water level by 1mm each second",
+    "ro_sensor_attack": false,
+    "seconds": 276,
+    "detected": false,
+    "share_of_rows_flagged": 0.0,
+    "by": {}
+   },
+   {
+    "id": 17,
+    "point": "MV-303",
+    "attack": "Do not let MV-303 open",
+    "ro_sensor_attack": false,
+    "seconds": 717,
+    "detected": false,
+    "share_of_rows_flagged": 0.0,
+    "by": {}
+   },
+   {
+    "id": 19,
+    "point": "AIT-504",
+    "attack": "Set value of AIT-504 to 16 uS/cm",
+    "ro_sensor_attack": true,
+    "seconds": 259,
+    "detected": true,
+    "share_of_rows_flagged": 0.915,
+    "by": {
+     "salt_passage": 0.915
+    }
+   },
+   {
+    "id": 20,
+    "point": "AIT-504",
+    "attack": "Set value of AIT-504 to 255 uS/cm",
+    "ro_sensor_attack": true,
+    "seconds": 395,
+    "detected": true,
+    "share_of_rows_flagged": 0.942,
+    "by": {
+     "salt_passage": 0.942
+    }
+   },
+   {
+    "id": 21,
+    "point": "MV-101, LIT-101",
+    "attack": "Keep MV-101 on countinuosly; Value of LIT-101 set as 700 mm",
+    "ro_sensor_attack": false,
+    "seconds": 721,
+    "detected": false,
+    "share_of_rows_flagged": 0.0,
+    "by": {}
+   },
+   {
+    "id": 22,
+    "point": "UV-401, AIT-502, P-501",
+    "attack": "Stop UV-401; Value of AIT502 set as 150; Force P-501 to remain on",
+    "ro_sensor_attack": true,
+    "seconds": 463,
+    "detected": true,
+    "share_of_rows_flagged": 0.879,
+    "by": {
+     "orp_pair": 0.879
+    }
+   },
+   {
+    "id": 23,
+    "point": "P-602, DIT-301, MV-302",
+    "attack": "Value of DPIT-301 set to >0.4 bar; Keep MV-302 open; Keep P-602 closed",
+    "ro_sensor_attack": false,
+    "seconds": 697,
+    "detected": false,
+    "share_of_rows_flagged": 0.0,
+    "by": {}
+   },
+   {
+    "id": 24,
+    "point": "P-203, P-205",
+    "attack": "Turn of P-203 and P-205",
+    "ro_sensor_attack": false,
+    "seconds": 321,
+    "detected": false,
+    "share_of_rows_flagged": 0.0,
+    "by": {}
+   },
+   {
+    "id": 25,
+    "point": "LIT-401, P-401",
+    "attack": "Set value of LIT-401 as 1000; P402 is kept on",
+    "ro_sensor_attack": false,
+    "seconds": 612,
+    "detected": false,
+    "share_of_rows_flagged": 0.0,
+    "by": {}
+   },
+   {
+    "id": 26,
+    "point": "P-101, LIT-301",
+    "attack": "P-101 is turned on continuosly; Set value of LIT-301 as 801 mm",
+    "ro_sensor_attack": false,
+    "seconds": 1445,
+    "detected": false,
+    "share_of_rows_flagged": 0.0,
+    "by": {}
+   },
+   {
+    "id": 27,
+    "point": "P-302, LIT-401",
+    "attack": "Keep P-302 on contineoulsy; Value of  LIT401 set as 600 mm till 1:26:01",
+    "ro_sensor_attack": false,
+    "seconds": 1691,
+    "detected": false,
+    "share_of_rows_flagged": 0.0,
+    "by": {}
+   },
+   {
+    "id": 28,
+    "point": "P-302",
+    "attack": "Close P-302",
+    "ro_sensor_attack": false,
+    "seconds": 34209,
+    "detected": true,
+    "share_of_rows_flagged": 0.0,
+    "by": {
+     "feed_meters": 0.0
+    }
+   },
+   {
+    "id": 29,
+    "point": "P-201, P-203, P-205",
+    "attack": "Turn on P-201; Turn on P-203; Turn on P-205",
+    "ro_sensor_attack": false,
+    "seconds": 121,
+    "detected": false,
+    "share_of_rows_flagged": 0.0,
+    "by": {}
+   },
+   {
+    "id": 30,
+    "point": "LIT-101, P-101, MV-201",
+    "attack": "Turn P-101 on continuously; Turn MV-101 on continuously; Set value of LIT-101 as",
+    "ro_sensor_attack": false,
+    "seconds": 1171,
+    "detected": false,
+    "share_of_rows_flagged": 0.0,
+    "by": {}
+   },
+   {
+    "id": 31,
+    "point": "LIT-401",
+    "attack": "Set LIT-401 to less than L",
+    "ro_sensor_attack": false,
+    "seconds": 367,
+    "detected": false,
+    "share_of_rows_flagged": 0.0,
+    "by": {}
+   },
+   {
+    "id": 32,
+    "point": "LIT-301",
+    "attack": "Set LIT-301 to above HH",
+    "ro_sensor_attack": false,
+    "seconds": 601,
+    "detected": false,
+    "share_of_rows_flagged": 0.0,
+    "by": {}
+   },
+   {
+    "id": 33,
+    "point": "LIT-101",
+    "attack": "Set LIT-101 to above H",
+    "ro_sensor_attack": false,
+    "seconds": 444,
+    "detected": false,
+    "share_of_rows_flagged": 0.0,
+    "by": {}
+   },
+   {
+    "id": 34,
+    "point": "P-101",
+    "attack": "Turn P-101 off",
+    "ro_sensor_attack": false,
+    "seconds": 101,
+    "detected": false,
+    "share_of_rows_flagged": 0.0,
+    "by": {}
+   },
+   {
+    "id": 35,
+    "point": "P-101; P-102",
+    "attack": "Turn P-101 off; Keep P-102 off",
+    "ro_sensor_attack": false,
+    "seconds": 481,
+    "detected": false,
+    "share_of_rows_flagged": 0.0,
+    "by": {}
+   },
+   {
+    "id": 36,
+    "point": "LIT-101",
+    "attack": "Set LIT-101 to less than LL",
+    "ro_sensor_attack": false,
+    "seconds": 540,
+    "detected": false,
+    "share_of_rows_flagged": 0.0,
+    "by": {}
+   },
+   {
+    "id": 37,
+    "point": "P-501, FIT-502",
+    "attack": "Close P-501; Set value of FIT-502 to 1.29  at 11:18:36",
+    "ro_sensor_attack": true,
+    "seconds": 469,
+    "detected": true,
+    "share_of_rows_flagged": 0.823,
+    "by": {
+     "flow_balance": 0.731,
+     "brine_dp": 0.079,
+     "permeability": 0.736,
+     "salt_passage": 0.397
+    }
+   },
+   {
+    "id": 38,
+    "point": "AIT-402, AIT-502",
+    "attack": "Set value of AIT402 as 260; Set value of AIT502 to 260",
+    "ro_sensor_attack": true,
+    "seconds": 281,
+    "detected": true,
+    "share_of_rows_flagged": 0.865,
+    "by": {
+     "orp_pair": 0.865
+    }
+   },
+   {
+    "id": 39,
+    "point": "FIT-401, AIT-502",
+    "attack": "Set value of FIT-401 as 0.5; Set value of AIT-502 as 140 mV",
+    "ro_sensor_attack": true,
+    "seconds": 401,
+    "detected": true,
+    "share_of_rows_flagged": 0.908,
+    "by": {
+     "feed_meters": 0.908
+    }
+   },
+   {
+    "id": 40,
+    "point": "FIT-401",
+    "attack": "Set value of FIT-401 as 0",
+    "ro_sensor_attack": true,
+    "seconds": 297,
+    "detected": true,
+    "share_of_rows_flagged": 0.872,
+    "by": {
+     "feed_meters": 0.872
+    }
+   },
+   {
+    "id": 41,
+    "point": "LIT-301",
+    "attack": "decrease value by 0.5 mm per second",
+    "ro_sensor_attack": false,
+    "seconds": 1675,
+    "detected": false,
+    "share_of_rows_flagged": 0.0,
+    "by": {}
+   }
+  ],
+  "ro_sensor_attacks_detected": "9 of 9",
+  "other_attacks_detected": [
+   28
+  ]
+ },
+ "persist_10s": {
+  "false_alarms_normal_heldout": {
+   "any": 0.0,
+   "flow_balance": 0.0,
+   "feed_meters": 0.0,
+   "brine_dp": 0.0,
+   "permeability": 0.0,
+   "salt_passage": 0.0,
+   "orp_pair": 0.0
+  },
+  "false_alarms_attackfile_normal_rows": {
+   "any": 0.00203,
+   "flow_balance": 9e-05,
+   "feed_meters": 0.00023,
+   "brine_dp": 0.0,
+   "permeability": 9e-05,
+   "salt_passage": 0.00046,
+   "orp_pair": 0.00124
+  },
+  "episodes": [
+   {
+    "id": 1,
+    "point": "MV-101",
+    "attack": "Open MV-101",
+    "ro_sensor_attack": false,
+    "seconds": 940,
+    "detected": false,
+    "share_of_rows_flagged": 0.0,
+    "by": {}
+   },
+   {
+    "id": 2,
+    "point": "P-102",
+    "attack": "Turn on P-102",
+    "ro_sensor_attack": false,
+    "seconds": 443,
+    "detected": false,
+    "share_of_rows_flagged": 0.0,
+    "by": {}
+   },
+   {
+    "id": 3,
+    "point": "LIT-101",
+    "attack": "Increase by 1 mm every second",
+    "ro_sensor_attack": false,
+    "seconds": 383,
+    "detected": false,
+    "share_of_rows_flagged": 0.0,
+    "by": {}
+   },
+   {
+    "id": 4,
+    "point": "MV-504",
+    "attack": "Open MV-504",
+    "ro_sensor_attack": false,
+    "seconds": 390,
+    "detected": false,
+    "share_of_rows_flagged": 0.0,
+    "by": {}
+   },
+   {
+    "id": 6,
+    "point": "AIT-202",
+    "attack": "Set value of AIT-202  as 6",
+    "ro_sensor_attack": false,
+    "seconds": 196,
+    "detected": false,
+    "share_of_rows_flagged": 0.0,
+    "by": {}
+   },
+   {
+    "id": 7,
+    "point": "LIT-301",
+    "attack": "Water level increased above HH",
+    "ro_sensor_attack": false,
+    "seconds": 429,
+    "detected": false,
+    "share_of_rows_flagged": 0.0,
+    "by": {}
+   },
+   {
+    "id": 8,
+    "point": "DPIT-301",
+    "attack": "Set value of DPIT as >40kpa",
+    "ro_sensor_attack": false,
+    "seconds": 964,
+    "detected": false,
+    "share_of_rows_flagged": 0.0,
+    "by": {}
+   },
+   {
+    "id": 10,
+    "point": "FIT-401",
+    "attack": "Set value of FIT-401 as <0.7",
+    "ro_sensor_attack": true,
+    "seconds": 161,
+    "detected": true,
+    "share_of_rows_flagged": 1.0,
+    "by": {
+     "feed_meters": 1.0
+    }
+   },
+   {
+    "id": 11,
+    "point": "FIT-401",
+    "attack": "Set value of FIT-401 as 0",
+    "ro_sensor_attack": true,
+    "seconds": 561,
+    "detected": true,
+    "share_of_rows_flagged": 1.0,
+    "by": {
+     "feed_meters": 0.968,
+     "orp_pair": 0.032
+    }
+   },
+   {
+    "id": 13,
+    "point": "MV-304",
+    "attack": "Close MV-304",
+    "ro_sensor_attack": false,
+    "seconds": 233,
+    "detected": false,
+    "share_of_rows_flagged": 0.0,
+    "by": {}
+   },
+   {
+    "id": 14,
+    "point": "Mv-303",
+    "attack": "Do not let MV-303 open",
+    "ro_sensor_attack": false,
+    "seconds": 431,
+    "detected": false,
+    "share_of_rows_flagged": 0.0,
+    "by": {}
+   },
+   {
+    "id": 16,
+    "point": "LIT-301",
+    "attack": "Decrease water level by 1mm each second",
+    "ro_sensor_attack": false,
+    "seconds": 276,
+    "detected": false,
+    "share_of_rows_flagged": 0.0,
+    "by": {}
+   },
+   {
+    "id": 17,
+    "point": "MV-303",
+    "attack": "Do not let MV-303 open",
+    "ro_sensor_attack": false,
+    "seconds": 717,
+    "detected": false,
+    "share_of_rows_flagged": 0.0,
+    "by": {}
+   },
+   {
+    "id": 19,
+    "point": "AIT-504",
+    "attack": "Set value of AIT-504 to 16 uS/cm",
+    "ro_sensor_attack": true,
+    "seconds": 259,
+    "detected": true,
+    "share_of_rows_flagged": 0.915,
+    "by": {
+     "salt_passage": 0.915
+    }
+   },
+   {
+    "id": 20,
+    "point": "AIT-504",
+    "attack": "Set value of AIT-504 to 255 uS/cm",
+    "ro_sensor_attack": true,
+    "seconds": 395,
+    "detected": true,
+    "share_of_rows_flagged": 0.942,
+    "by": {
+     "salt_passage": 0.942
+    }
+   },
+   {
+    "id": 21,
+    "point": "MV-101, LIT-101",
+    "attack": "Keep MV-101 on countinuosly; Value of LIT-101 set as 700 mm",
+    "ro_sensor_attack": false,
+    "seconds": 721,
+    "detected": false,
+    "share_of_rows_flagged": 0.0,
+    "by": {}
+   },
+   {
+    "id": 22,
+    "point": "UV-401, AIT-502, P-501",
+    "attack": "Stop UV-401; Value of AIT502 set as 150; Force P-501 to remain on",
+    "ro_sensor_attack": true,
+    "seconds": 463,
+    "detected": true,
+    "share_of_rows_flagged": 0.879,
+    "by": {
+     "orp_pair": 0.879
+    }
+   },
+   {
+    "id": 23,
+    "point": "P-602, DIT-301, MV-302",
+    "attack": "Value of DPIT-301 set to >0.4 bar; Keep MV-302 open; Keep P-602 closed",
+    "ro_sensor_attack": false,
+    "seconds": 697,
+    "detected": false,
+    "share_of_rows_flagged": 0.0,
+    "by": {}
+   },
+   {
+    "id": 24,
+    "point": "P-203, P-205",
+    "attack": "Turn of P-203 and P-205",
+    "ro_sensor_attack": false,
+    "seconds": 321,
+    "detected": false,
+    "share_of_rows_flagged": 0.0,
+    "by": {}
+   },
+   {
+    "id": 25,
+    "point": "LIT-401, P-401",
+    "attack": "Set value of LIT-401 as 1000; P402 is kept on",
+    "ro_sensor_attack": false,
+    "seconds": 612,
+    "detected": false,
+    "share_of_rows_flagged": 0.0,
+    "by": {}
+   },
+   {
+    "id": 26,
+    "point": "P-101, LIT-301",
+    "attack": "P-101 is turned on continuosly; Set value of LIT-301 as 801 mm",
+    "ro_sensor_attack": false,
+    "seconds": 1445,
+    "detected": false,
+    "share_of_rows_flagged": 0.0,
+    "by": {}
+   },
+   {
+    "id": 27,
+    "point": "P-302, LIT-401",
+    "attack": "Keep P-302 on contineoulsy; Value of  LIT401 set as 600 mm till 1:26:01",
+    "ro_sensor_attack": false,
+    "seconds": 1691,
+    "detected": false,
+    "share_of_rows_flagged": 0.0,
+    "by": {}
+   },
+   {
+    "id": 28,
+    "point": "P-302",
+    "attack": "Close P-302",
+    "ro_sensor_attack": false,
+    "seconds": 34209,
+    "detected": false,
+    "share_of_rows_flagged": 0.0,
+    "by": {}
+   },
+   {
+    "id": 29,
+    "point": "P-201, P-203, P-205",
+    "attack": "Turn on P-201; Turn on P-203; Turn on P-205",
+    "ro_sensor_attack": false,
+    "seconds": 121,
+    "detected": false,
+    "share_of_rows_flagged": 0.0,
+    "by": {}
+   },
+   {
+    "id": 30,
+    "point": "LIT-101, P-101, MV-201",
+    "attack": "Turn P-101 on continuously; Turn MV-101 on continuously; Set value of LIT-101 as",
+    "ro_sensor_attack": false,
+    "seconds": 1171,
+    "detected": false,
+    "share_of_rows_flagged": 0.0,
+    "by": {}
+   },
+   {
+    "id": 31,
+    "point": "LIT-401",
+    "attack": "Set LIT-401 to less than L",
+    "ro_sensor_attack": false,
+    "seconds": 367,
+    "detected": false,
+    "share_of_rows_flagged": 0.0,
+    "by": {}
+   },
+   {
+    "id": 32,
+    "point": "LIT-301",
+    "attack": "Set LIT-301 to above HH",
+    "ro_sensor_attack": false,
+    "seconds": 601,
+    "detected": false,
+    "share_of_rows_flagged": 0.0,
+    "by": {}
+   },
+   {
+    "id": 33,
+    "point": "LIT-101",
+    "attack": "Set LIT-101 to above H",
+    "ro_sensor_attack": false,
+    "seconds": 444,
+    "detected": false,
+    "share_of_rows_flagged": 0.0,
+    "by": {}
+   },
+   {
+    "id": 34,
+    "point": "P-101",
+    "attack": "Turn P-101 off",
+    "ro_sensor_attack": false,
+    "seconds": 101,
+    "detected": false,
+    "share_of_rows_flagged": 0.0,
+    "by": {}
+   },
+   {
+    "id": 35,
+    "point": "P-101; P-102",
+    "attack": "Turn P-101 off; Keep P-102 off",
+    "ro_sensor_attack": false,
+    "seconds": 481,
+    "detected": false,
+    "share_of_rows_flagged": 0.0,
+    "by": {}
+   },
+   {
+    "id": 36,
+    "point": "LIT-101",
+    "attack": "Set LIT-101 to less than LL",
+    "ro_sensor_attack": false,
+    "seconds": 540,
+    "detected": false,
+    "share_of_rows_flagged": 0.0,
+    "by": {}
+   },
+   {
+    "id": 37,
+    "point": "P-501, FIT-502",
+    "attack": "Close P-501; Set value of FIT-502 to 1.29  at 11:18:36",
+    "ro_sensor_attack": true,
+    "seconds": 469,
+    "detected": true,
+    "share_of_rows_flagged": 0.802,
+    "by": {
+     "flow_balance": 0.721,
+     "permeability": 0.721,
+     "salt_passage": 0.397
+    }
+   },
+   {
+    "id": 38,
+    "point": "AIT-402, AIT-502",
+    "attack": "Set value of AIT402 as 260; Set value of AIT502 to 260",
+    "ro_sensor_attack": true,
+    "seconds": 281,
+    "detected": true,
+    "share_of_rows_flagged": 0.865,
+    "by": {
+     "orp_pair": 0.865
+    }
+   },
+   {
+    "id": 39,
+    "point": "FIT-401, AIT-502",
+    "attack": "Set value of FIT-401 as 0.5; Set value of AIT-502 as 140 mV",
+    "ro_sensor_attack": true,
+    "seconds": 401,
+    "detected": true,
+    "share_of_rows_flagged": 0.908,
+    "by": {
+     "feed_meters": 0.908
+    }
+   },
+   {
+    "id": 40,
+    "point": "FIT-401",
+    "attack": "Set value of FIT-401 as 0",
+    "ro_sensor_attack": true,
+    "seconds": 297,
+    "detected": true,
+    "share_of_rows_flagged": 0.872,
+    "by": {
+     "feed_meters": 0.872
+    }
+   },
+   {
+    "id": 41,
+    "point": "LIT-301",
+    "attack": "decrease value by 0.5 mm per second",
+    "ro_sensor_attack": false,
+    "seconds": 1675,
+    "detected": false,
+    "share_of_rows_flagged": 0.0,
+    "by": {}
+   }
+  ],
+  "ro_sensor_attacks_detected": "9 of 9",
+  "other_attacks_detected": []
+ }
+}

@@ -1,0 +1,3396 @@
+{
+ "setup": {
+  "days": 60,
+  "calibration_days": 30,
+  "seeds": 5,
+  "trailing": {
+   "window_min": 360,
+   "lag_min": 60
+  },
+  "detect_threshold": 0.9,
+  "tolerance_note": "flow/salt balance: fraction of feed; ro_*/uf_*: natural-log units (0.05 ~ 5%); orp_*: mV"
+ },
+ "tolerances": {
+  "static": {
+   "static": {
+    "flow_balance": 0.0192,
+    "salt_balance": 0.0341,
+    "ro_water_perm": 0.1291,
+    "ro_salt_perm": 0.1005,
+    "ro_brine_dp": 0.3073,
+    "uf_resistance": 0.8378,
+    "orp_pretreat": 27.0592,
+    "orp_ro_low": 20.0,
+    "orp_ro_band": 23.8008
+   },
+   "trailing": {}
+  },
+  "trailing": {
+   "static": {
+    "flow_balance": 0.0192,
+    "salt_balance": 0.0341,
+    "ro_water_perm": 0.085,
+    "ro_salt_perm": 0.1005,
+    "ro_brine_dp": 0.3073,
+    "uf_resistance": 0.5376,
+    "orp_pretreat": 11.9205,
+    "orp_ro_low": 20.0,
+    "orp_ro_band": 12.8947
+   },
+   "trailing": {
+    "ro_water_perm": 0.054,
+    "ro_salt_perm": 0.0583,
+    "ro_brine_dp": 0.2608,
+    "uf_resistance": 0.2196,
+    "orp_pretreat": 14.7409,
+    "orp_ro_band": 23.0248
+   }
+  }
+ },
+ "false_alarms": {
+  "static": {
+   "any": {
+    "mean": 0.073,
+    "max": 0.14134
+   },
+   "flow_balance": {
+    "mean": 0.0,
+    "max": 2e-05
+   },
+   "salt_balance": {
+    "mean": 0.0,
+    "max": 0.0
+   },
+   "ro_water_perm": {
+    "mean": 0.05146,
+    "max": 0.10451
+   },
+   "ro_salt_perm": {
+    "mean": 0.02119,
+    "max": 0.03299
+   },
+   "ro_brine_dp": {
+    "mean": 1e-05,
+    "max": 5e-05
+   },
+   "uf_resistance": {
+    "mean": 0.00026,
+    "max": 0.00125
+   },
+   "orp_pretreat": {
+    "mean": 0.00711,
+    "max": 0.02715
+   },
+   "orp_ro_feed": {
+    "mean": 0.00115,
+    "max": 0.00514
+   }
+  },
+  "trailing": {
+   "any": {
+    "mean": 0.00029,
+    "max": 0.00095
+   },
+   "flow_balance": {
+    "mean": 0.0,
+    "max": 2e-05
+   },
+   "salt_balance": {
+    "mean": 0.0,
+    "max": 0.0
+   },
+   "ro_water_perm": {
+    "mean": 0.0,
+    "max": 2e-05
+   },
+   "ro_salt_perm": {
+    "mean": 0.0,
+    "max": 0.0
+   },
+   "ro_brine_dp": {
+    "mean": 0.0,
+    "max": 2e-05
+   },
+   "uf_resistance": {
+    "mean": 0.00023,
+    "max": 0.00093
+   },
+   "orp_pretreat": {
+    "mean": 0.0,
+    "max": 2e-05
+   },
+   "orp_ro_feed": {
+    "mean": 5e-05,
+    "max": 0.00023
+   }
+  }
+ },
+ "sensitivity": {
+  "static": {
+   "Q_uf": {
+    "unit": "relative",
+    "min_detectable_both_signs": null,
+    "min_detectable_either_sign": null,
+    "levels": [
+     {
+      "bias": 0.01,
+      "any": 0.0667,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": -0.01,
+      "any": 0.0667,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": 0.02,
+      "any": 0.0667,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": -0.02,
+      "any": 0.0667,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": 0.05,
+      "any": 0.0667,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": -0.05,
+      "any": 0.0668,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": 0.1,
+      "any": 0.0667,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": -0.1,
+      "any": 0.0675,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": 0.2,
+      "any": 0.0667,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": -0.2,
+      "any": 0.0737,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": 0.5,
+      "any": 0.0667,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": -0.5,
+      "any": 0.1596,
+      "by": {
+       "ro_water_perm": 0.056,
+       "uf_resistance": 0.0956
+      }
+     }
+    ]
+   },
+   "TMP_uf": {
+    "unit": "relative",
+    "min_detectable_both_signs": null,
+    "min_detectable_either_sign": null,
+    "levels": [
+     {
+      "bias": 0.01,
+      "any": 0.0667,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": -0.01,
+      "any": 0.0667,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": 0.02,
+      "any": 0.0667,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": -0.02,
+      "any": 0.0667,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": 0.05,
+      "any": 0.0668,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": -0.05,
+      "any": 0.0667,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": 0.1,
+      "any": 0.0674,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": -0.1,
+      "any": 0.0667,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": 0.2,
+      "any": 0.0709,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": -0.2,
+      "any": 0.0667,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": 0.5,
+      "any": 0.0918,
+      "by": {
+       "ro_water_perm": 0.056,
+       "uf_resistance": 0.0258
+      }
+     },
+     {
+      "bias": -0.5,
+      "any": 0.1366,
+      "by": {
+       "ro_water_perm": 0.056,
+       "uf_resistance": 0.0768
+      }
+     }
+    ]
+   },
+   "T_feed": {
+    "unit": "degC",
+    "min_detectable_both_signs": null,
+    "min_detectable_either_sign": 5,
+    "levels": [
+     {
+      "bias": 0.25,
+      "any": 0.0886,
+      "by": {
+       "ro_water_perm": 0.0808
+      }
+     },
+     {
+      "bias": -0.25,
+      "any": 0.0577,
+      "by": {
+       "ro_water_perm": 0.0328,
+       "ro_salt_perm": 0.0234
+      }
+     },
+     {
+      "bias": 0.5,
+      "any": 0.1136,
+      "by": {
+       "ro_water_perm": 0.1064
+      }
+     },
+     {
+      "bias": -0.5,
+      "any": 0.0807,
+      "by": {
+       "ro_water_perm": 0.0163,
+       "ro_salt_perm": 0.0638
+      }
+     },
+     {
+      "bias": 1,
+      "any": 0.1556,
+      "by": {
+       "ro_water_perm": 0.1498
+      }
+     },
+     {
+      "bias": -1,
+      "any": 0.2416,
+      "by": {
+       "ro_salt_perm": 0.2375
+      }
+     },
+     {
+      "bias": 2,
+      "any": 0.2381,
+      "by": {
+       "ro_water_perm": 0.2358
+      }
+     },
+     {
+      "bias": -2,
+      "any": 0.7472,
+      "by": {
+       "ro_salt_perm": 0.7471
+      }
+     },
+     {
+      "bias": 5,
+      "any": 0.885,
+      "by": {
+       "ro_water_perm": 0.7344,
+       "ro_salt_perm": 0.2597
+      }
+     },
+     {
+      "bias": -5,
+      "any": 1.0,
+      "by": {
+       "ro_salt_perm": 1.0
+      }
+     }
+    ]
+   },
+   "FAC_pre": {
+    "unit": "relative",
+    "min_detectable_both_signs": null,
+    "min_detectable_either_sign": null,
+    "levels": [
+     {
+      "bias": 0.01,
+      "any": 0.0685,
+      "by": {
+       "ro_water_perm": 0.056,
+       "orp_pretreat": 0.0106
+      }
+     },
+     {
+      "bias": -0.01,
+      "any": 0.0651,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": 0.02,
+      "any": 0.0709,
+      "by": {
+       "ro_water_perm": 0.056,
+       "orp_pretreat": 0.0133
+      }
+     },
+     {
+      "bias": -0.02,
+      "any": 0.0635,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": 0.05,
+      "any": 0.0811,
+      "by": {
+       "ro_water_perm": 0.056,
+       "orp_pretreat": 0.0253
+      }
+     },
+     {
+      "bias": -0.05,
+      "any": 0.0608,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": 0.1,
+      "any": 0.1084,
+      "by": {
+       "ro_water_perm": 0.056,
+       "orp_pretreat": 0.0567
+      }
+     },
+     {
+      "bias": -0.1,
+      "any": 0.0594,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": 0.2,
+      "any": 0.1866,
+      "by": {
+       "ro_water_perm": 0.056,
+       "orp_pretreat": 0.1497
+      }
+     },
+     {
+      "bias": -0.2,
+      "any": 0.0589,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": 0.5,
+      "any": 0.3886,
+      "by": {
+       "ro_water_perm": 0.056,
+       "orp_pretreat": 0.3829
+      }
+     },
+     {
+      "bias": -0.5,
+      "any": 0.0591,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     }
+    ]
+   },
+   "ORP_pre": {
+    "unit": "mV",
+    "min_detectable_both_signs": 50,
+    "min_detectable_either_sign": 25,
+    "levels": [
+     {
+      "bias": 5,
+      "any": 0.059,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": -5,
+      "any": 0.1692,
+      "by": {
+       "ro_water_perm": 0.056,
+       "orp_pretreat": 0.1292
+      }
+     },
+     {
+      "bias": 10,
+      "any": 0.0589,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": -10,
+      "any": 0.3155,
+      "by": {
+       "ro_water_perm": 0.056,
+       "orp_pretreat": 0.3011
+      }
+     },
+     {
+      "bias": 25,
+      "any": 0.067,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": -25,
+      "any": 0.9331,
+      "by": {
+       "ro_water_perm": 0.056,
+       "orp_pretreat": 0.9331
+      }
+     },
+     {
+      "bias": 50,
+      "any": 0.9172,
+      "by": {
+       "ro_water_perm": 0.056,
+       "orp_pretreat": 0.9038
+      }
+     },
+     {
+      "bias": -50,
+      "any": 1.0,
+      "by": {
+       "ro_water_perm": 0.056,
+       "orp_pretreat": 1.0
+      }
+     },
+     {
+      "bias": 100,
+      "any": 1.0,
+      "by": {
+       "ro_water_perm": 0.056,
+       "orp_pretreat": 1.0
+      }
+     },
+     {
+      "bias": -100,
+      "any": 1.0,
+      "by": {
+       "ro_water_perm": 0.056,
+       "orp_pretreat": 1.0
+      }
+     },
+     {
+      "bias": 200,
+      "any": 1.0,
+      "by": {
+       "ro_water_perm": 0.056,
+       "orp_pretreat": 1.0
+      }
+     },
+     {
+      "bias": -200,
+      "any": 1.0,
+      "by": {
+       "ro_water_perm": 0.056,
+       "orp_pretreat": 1.0
+      }
+     }
+    ]
+   },
+   "pH_feed": {
+    "unit": "-",
+    "min_detectable_both_signs": null,
+    "min_detectable_either_sign": null,
+    "levels": [
+     {
+      "bias": 0.05,
+      "any": 0.0629,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": -0.05,
+      "any": 0.0729,
+      "by": {
+       "ro_water_perm": 0.056,
+       "orp_pretreat": 0.0155
+      }
+     },
+     {
+      "bias": 0.1,
+      "any": 0.0608,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": -0.1,
+      "any": 0.0823,
+      "by": {
+       "ro_water_perm": 0.056,
+       "orp_pretreat": 0.0266
+      }
+     },
+     {
+      "bias": 0.2,
+      "any": 0.0594,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": -0.2,
+      "any": 0.1141,
+      "by": {
+       "ro_water_perm": 0.056,
+       "orp_pretreat": 0.0631
+      }
+     },
+     {
+      "bias": 0.5,
+      "any": 0.0589,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": -0.5,
+      "any": 0.2583,
+      "by": {
+       "ro_water_perm": 0.056,
+       "orp_pretreat": 0.2342
+      }
+     },
+     {
+      "bias": 1.0,
+      "any": 0.0589,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": -1.0,
+      "any": 0.5523,
+      "by": {
+       "ro_water_perm": 0.056,
+       "orp_pretreat": 0.5515
+      }
+     }
+    ]
+   },
+   "Q_sbs": {
+    "unit": "relative",
+    "min_detectable_both_signs": null,
+    "min_detectable_either_sign": null,
+    "levels": [
+     {
+      "bias": 0.01,
+      "any": 0.0667,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": -0.01,
+      "any": 0.0667,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": 0.02,
+      "any": 0.0667,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": -0.02,
+      "any": 0.0667,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": 0.05,
+      "any": 0.0667,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": -0.05,
+      "any": 0.0667,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": 0.1,
+      "any": 0.0667,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": -0.1,
+      "any": 0.0667,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": 0.2,
+      "any": 0.0667,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": -0.2,
+      "any": 0.0667,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": 0.5,
+      "any": 0.0667,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": -0.5,
+      "any": 0.0667,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     }
+    ]
+   },
+   "ORP_ro": {
+    "unit": "mV",
+    "min_detectable_both_signs": 50,
+    "min_detectable_either_sign": 50,
+    "levels": [
+     {
+      "bias": 5,
+      "any": 0.0667,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": -5,
+      "any": 0.0671,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": 10,
+      "any": 0.0668,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": -10,
+      "any": 0.0994,
+      "by": {
+       "ro_water_perm": 0.056,
+       "orp_ro_feed": 0.0327
+      }
+     },
+     {
+      "bias": 25,
+      "any": 0.4862,
+      "by": {
+       "ro_water_perm": 0.056,
+       "orp_ro_feed": 0.4759
+      }
+     },
+     {
+      "bias": -25,
+      "any": 0.6884,
+      "by": {
+       "ro_water_perm": 0.056,
+       "orp_ro_feed": 0.6471
+      }
+     },
+     {
+      "bias": 50,
+      "any": 1.0,
+      "by": {
+       "ro_water_perm": 0.056,
+       "orp_ro_feed": 1.0
+      }
+     },
+     {
+      "bias": -50,
+      "any": 1.0,
+      "by": {
+       "ro_water_perm": 0.056,
+       "orp_ro_feed": 1.0
+      }
+     },
+     {
+      "bias": 100,
+      "any": 1.0,
+      "by": {
+       "ro_water_perm": 0.056,
+       "orp_ro_feed": 1.0
+      }
+     },
+     {
+      "bias": -100,
+      "any": 1.0,
+      "by": {
+       "ro_water_perm": 0.056,
+       "orp_ro_feed": 1.0
+      }
+     },
+     {
+      "bias": 200,
+      "any": 1.0,
+      "by": {
+       "ro_water_perm": 0.056,
+       "orp_ro_feed": 1.0
+      }
+     },
+     {
+      "bias": -200,
+      "any": 1.0,
+      "by": {
+       "ro_water_perm": 0.056,
+       "orp_ro_feed": 1.0
+      }
+     }
+    ]
+   },
+   "Q_feed": {
+    "unit": "relative",
+    "min_detectable_both_signs": 0.05,
+    "min_detectable_either_sign": 0.05,
+    "levels": [
+     {
+      "bias": 0.01,
+      "any": 0.1152,
+      "by": {
+       "ro_water_perm": 0.0991,
+       "ro_salt_perm": 0.0123
+      }
+     },
+     {
+      "bias": -0.01,
+      "any": 0.0389,
+      "by": {
+       "ro_water_perm": 0.0197
+      }
+     },
+     {
+      "bias": 0.02,
+      "any": 0.6211,
+      "by": {
+       "flow_balance": 0.5627,
+       "ro_water_perm": 0.1342,
+       "ro_salt_perm": 0.0214
+      }
+     },
+     {
+      "bias": -0.02,
+      "any": 0.6384,
+      "by": {
+       "flow_balance": 0.6323,
+       "salt_balance": 0.015
+      }
+     },
+     {
+      "bias": 0.05,
+      "any": 1.0,
+      "by": {
+       "flow_balance": 1.0,
+       "salt_balance": 0.9919,
+       "ro_water_perm": 0.2174,
+       "ro_salt_perm": 0.0775
+      }
+     },
+     {
+      "bias": -0.05,
+      "any": 1.0,
+      "by": {
+       "flow_balance": 1.0,
+       "salt_balance": 0.9989
+      }
+     },
+     {
+      "bias": 0.1,
+      "any": 1.0,
+      "by": {
+       "flow_balance": 1.0,
+       "salt_balance": 1.0,
+       "ro_water_perm": 0.3965,
+       "ro_salt_perm": 0.257
+      }
+     },
+     {
+      "bias": -0.1,
+      "any": 1.0,
+      "by": {
+       "flow_balance": 1.0,
+       "salt_balance": 1.0
+      }
+     },
+     {
+      "bias": 0.2,
+      "any": 1.0,
+      "by": {
+       "flow_balance": 1.0,
+       "salt_balance": 1.0,
+       "ro_water_perm": 0.855,
+       "ro_salt_perm": 0.6503,
+       "ro_brine_dp": 0.0266
+      }
+     },
+     {
+      "bias": -0.2,
+      "any": 1.0,
+      "by": {
+       "flow_balance": 1.0,
+       "salt_balance": 1.0,
+       "ro_water_perm": 0.9963,
+       "ro_brine_dp": 0.1474
+      }
+     },
+     {
+      "bias": 0.5,
+      "any": 1.0,
+      "by": {
+       "flow_balance": 1.0,
+       "salt_balance": 1.0,
+       "ro_water_perm": 1.0,
+       "ro_salt_perm": 0.9971,
+       "ro_brine_dp": 0.8629
+      }
+     },
+     {
+      "bias": -0.5,
+      "any": 1.0,
+      "by": {
+       "flow_balance": 1.0,
+       "salt_balance": 1.0,
+       "ro_water_perm": 1.0,
+       "ro_salt_perm": 1.0,
+       "ro_brine_dp": 0.9996
+      }
+     }
+    ]
+   },
+   "Q_perm": {
+    "unit": "relative",
+    "min_detectable_both_signs": 0.1,
+    "min_detectable_either_sign": 0.1,
+    "levels": [
+     {
+      "bias": 0.01,
+      "any": 0.0315,
+      "by": {
+       "ro_salt_perm": 0.0208
+      }
+     },
+     {
+      "bias": -0.01,
+      "any": 0.1464,
+      "by": {
+       "ro_water_perm": 0.14
+      }
+     },
+     {
+      "bias": 0.02,
+      "any": 0.0619,
+      "by": {
+       "ro_salt_perm": 0.0519
+      }
+     },
+     {
+      "bias": -0.02,
+      "any": 0.2158,
+      "by": {
+       "ro_water_perm": 0.2117
+      }
+     },
+     {
+      "bias": 0.05,
+      "any": 0.7664,
+      "by": {
+       "flow_balance": 0.6847,
+       "ro_salt_perm": 0.2783
+      }
+     },
+     {
+      "bias": -0.05,
+      "any": 0.8377,
+      "by": {
+       "flow_balance": 0.6972,
+       "ro_water_perm": 0.5767
+      }
+     },
+     {
+      "bias": 0.1,
+      "any": 1.0,
+      "by": {
+       "flow_balance": 1.0,
+       "ro_water_perm": 0.6297,
+       "ro_salt_perm": 0.7969
+      }
+     },
+     {
+      "bias": -0.1,
+      "any": 1.0,
+      "by": {
+       "flow_balance": 1.0,
+       "ro_water_perm": 1.0
+      }
+     },
+     {
+      "bias": 0.2,
+      "any": 1.0,
+      "by": {
+       "flow_balance": 1.0,
+       "ro_water_perm": 1.0,
+       "ro_salt_perm": 1.0
+      }
+     },
+     {
+      "bias": -0.2,
+      "any": 1.0,
+      "by": {
+       "flow_balance": 1.0,
+       "ro_water_perm": 1.0,
+       "ro_salt_perm": 0.5461
+      }
+     },
+     {
+      "bias": 0.5,
+      "any": 1.0,
+      "by": {
+       "flow_balance": 1.0,
+       "ro_water_perm": 1.0,
+       "ro_salt_perm": 1.0
+      }
+     },
+     {
+      "bias": -0.5,
+      "any": 1.0,
+      "by": {
+       "flow_balance": 1.0,
+       "ro_water_perm": 1.0,
+       "ro_salt_perm": 1.0
+      }
+     }
+    ]
+   },
+   "Q_conc": {
+    "unit": "relative",
+    "min_detectable_both_signs": 0.05,
+    "min_detectable_either_sign": 0.05,
+    "levels": [
+     {
+      "bias": 0.01,
+      "any": 0.0669,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": -0.01,
+      "any": 0.0669,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": 0.02,
+      "any": 0.0979,
+      "by": {
+       "flow_balance": 0.0244,
+       "salt_balance": 0.0122,
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": -0.02,
+      "any": 0.0904,
+      "by": {
+       "flow_balance": 0.0221,
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": 0.05,
+      "any": 0.9992,
+      "by": {
+       "flow_balance": 0.9941,
+       "salt_balance": 0.9953,
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": -0.05,
+      "any": 0.9995,
+      "by": {
+       "flow_balance": 0.9963,
+       "salt_balance": 0.9972,
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": 0.1,
+      "any": 1.0,
+      "by": {
+       "flow_balance": 1.0,
+       "salt_balance": 1.0,
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": -0.1,
+      "any": 1.0,
+      "by": {
+       "flow_balance": 1.0,
+       "salt_balance": 1.0,
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": 0.2,
+      "any": 1.0,
+      "by": {
+       "flow_balance": 1.0,
+       "salt_balance": 1.0,
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": -0.2,
+      "any": 1.0,
+      "by": {
+       "flow_balance": 1.0,
+       "salt_balance": 1.0,
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": 0.5,
+      "any": 1.0,
+      "by": {
+       "flow_balance": 1.0,
+       "salt_balance": 1.0,
+       "ro_water_perm": 0.056,
+       "ro_brine_dp": 0.1494
+      }
+     },
+     {
+      "bias": -0.5,
+      "any": 1.0,
+      "by": {
+       "flow_balance": 1.0,
+       "salt_balance": 1.0,
+       "ro_water_perm": 0.056,
+       "ro_brine_dp": 0.6388
+      }
+     }
+    ]
+   },
+   "P_feed": {
+    "unit": "relative",
+    "min_detectable_both_signs": 0.02,
+    "min_detectable_either_sign": 0.01,
+    "levels": [
+     {
+      "bias": 0.01,
+      "any": 0.8971,
+      "by": {
+       "ro_water_perm": 0.1351,
+       "ro_brine_dp": 0.8971
+      }
+     },
+     {
+      "bias": -0.01,
+      "any": 0.9896,
+      "by": {
+       "ro_brine_dp": 0.9894
+      }
+     },
+     {
+      "bias": 0.02,
+      "any": 1.0,
+      "by": {
+       "ro_water_perm": 0.1936,
+       "ro_brine_dp": 1.0
+      }
+     },
+     {
+      "bias": -0.02,
+      "any": 1.0,
+      "by": {
+       "ro_brine_dp": 1.0
+      }
+     },
+     {
+      "bias": 0.05,
+      "any": 1.0,
+      "by": {
+       "ro_water_perm": 0.5034,
+       "ro_brine_dp": 1.0
+      }
+     },
+     {
+      "bias": -0.05,
+      "any": 1.0,
+      "by": {
+       "ro_brine_dp": 1.0
+      }
+     },
+     {
+      "bias": 0.1,
+      "any": 1.0,
+      "by": {
+       "ro_water_perm": 1.0,
+       "ro_brine_dp": 1.0
+      }
+     },
+     {
+      "bias": -0.1,
+      "any": 1.0,
+      "by": {
+       "ro_water_perm": 0.6228,
+       "ro_brine_dp": 1.0
+      }
+     },
+     {
+      "bias": 0.2,
+      "any": 1.0,
+      "by": {
+       "ro_water_perm": 1.0,
+       "ro_brine_dp": 1.0
+      }
+     },
+     {
+      "bias": -0.2,
+      "any": 1.0,
+      "by": {
+       "ro_water_perm": 1.0,
+       "ro_brine_dp": 1.0
+      }
+     },
+     {
+      "bias": 0.5,
+      "any": 1.0,
+      "by": {
+       "ro_water_perm": 1.0,
+       "ro_brine_dp": 1.0
+      }
+     },
+     {
+      "bias": -0.5,
+      "any": 1.0,
+      "by": {
+       "ro_water_perm": 1.0,
+       "ro_brine_dp": 1.0
+      }
+     }
+    ]
+   },
+   "P_conc": {
+    "unit": "relative",
+    "min_detectable_both_signs": 0.02,
+    "min_detectable_either_sign": 0.01,
+    "levels": [
+     {
+      "bias": 0.01,
+      "any": 0.9825,
+      "by": {
+       "ro_water_perm": 0.1339,
+       "ro_brine_dp": 0.9809
+      }
+     },
+     {
+      "bias": -0.01,
+      "any": 0.8617,
+      "by": {
+       "ro_brine_dp": 0.8617
+      }
+     },
+     {
+      "bias": 0.02,
+      "any": 1.0,
+      "by": {
+       "ro_water_perm": 0.1903,
+       "ro_brine_dp": 1.0
+      }
+     },
+     {
+      "bias": -0.02,
+      "any": 1.0,
+      "by": {
+       "ro_brine_dp": 1.0
+      }
+     },
+     {
+      "bias": 0.05,
+      "any": 1.0,
+      "by": {
+       "ro_water_perm": 0.4879,
+       "ro_brine_dp": 1.0
+      }
+     },
+     {
+      "bias": -0.05,
+      "any": 1.0,
+      "by": {
+       "ro_brine_dp": 1.0
+      }
+     },
+     {
+      "bias": 0.1,
+      "any": 1.0,
+      "by": {
+       "ro_water_perm": 1.0,
+       "ro_brine_dp": 1.0
+      }
+     },
+     {
+      "bias": -0.1,
+      "any": 1.0,
+      "by": {
+       "ro_water_perm": 0.5959,
+       "ro_brine_dp": 1.0
+      }
+     },
+     {
+      "bias": 0.2,
+      "any": 1.0,
+      "by": {
+       "ro_water_perm": 1.0,
+       "ro_brine_dp": 1.0
+      }
+     },
+     {
+      "bias": -0.2,
+      "any": 1.0,
+      "by": {
+       "ro_water_perm": 1.0,
+       "ro_brine_dp": 1.0
+      }
+     },
+     {
+      "bias": 0.5,
+      "any": 1.0,
+      "by": {
+       "ro_water_perm": 1.0,
+       "ro_brine_dp": 1.0
+      }
+     },
+     {
+      "bias": -0.5,
+      "any": 1.0,
+      "by": {
+       "ro_water_perm": 1.0,
+       "ro_brine_dp": 1.0
+      }
+     }
+    ]
+   },
+   "P_perm": {
+    "unit": "relative",
+    "min_detectable_both_signs": null,
+    "min_detectable_either_sign": null,
+    "levels": [
+     {
+      "bias": 0.01,
+      "any": 0.0647,
+      "by": {
+       "ro_water_perm": 0.0538
+      }
+     },
+     {
+      "bias": -0.01,
+      "any": 0.0684,
+      "by": {
+       "ro_water_perm": 0.0578
+      }
+     },
+     {
+      "bias": 0.02,
+      "any": 0.0631,
+      "by": {
+       "ro_water_perm": 0.0521
+      }
+     },
+     {
+      "bias": -0.02,
+      "any": 0.0701,
+      "by": {
+       "ro_water_perm": 0.0595
+      }
+     },
+     {
+      "bias": 0.05,
+      "any": 0.0576,
+      "by": {
+       "ro_water_perm": 0.0463
+      }
+     },
+     {
+      "bias": -0.05,
+      "any": 0.0759,
+      "by": {
+       "ro_water_perm": 0.0656
+      }
+     },
+     {
+      "bias": 0.1,
+      "any": 0.0487,
+      "by": {
+       "ro_water_perm": 0.0368
+      }
+     },
+     {
+      "bias": -0.1,
+      "any": 0.0861,
+      "by": {
+       "ro_water_perm": 0.0765
+      }
+     },
+     {
+      "bias": 0.2,
+      "any": 0.0348,
+      "by": {
+       "ro_water_perm": 0.0217
+      }
+     },
+     {
+      "bias": -0.2,
+      "any": 0.1064,
+      "by": {
+       "ro_water_perm": 0.0975
+      }
+     },
+     {
+      "bias": 0.5,
+      "any": 0.0161,
+      "by": {}
+     },
+     {
+      "bias": -0.5,
+      "any": 0.15,
+      "by": {
+       "ro_water_perm": 0.1432
+      }
+     }
+    ]
+   },
+   "C_feed": {
+    "unit": "relative",
+    "min_detectable_both_signs": 0.05,
+    "min_detectable_either_sign": 0.05,
+    "levels": [
+     {
+      "bias": 0.01,
+      "any": 0.0095,
+      "by": {}
+     },
+     {
+      "bias": -0.01,
+      "any": 0.1701,
+      "by": {
+       "ro_water_perm": 0.1586,
+       "ro_salt_perm": 0.0358
+      }
+     },
+     {
+      "bias": 0.02,
+      "any": 0.0153,
+      "by": {}
+     },
+     {
+      "bias": -0.02,
+      "any": 0.2806,
+      "by": {
+       "salt_balance": 0.015,
+       "ro_water_perm": 0.2495,
+       "ro_salt_perm": 0.119
+      }
+     },
+     {
+      "bias": 0.05,
+      "any": 0.9921,
+      "by": {
+       "salt_balance": 0.9919,
+       "ro_water_perm": 0.0602
+      }
+     },
+     {
+      "bias": -0.05,
+      "any": 0.9997,
+      "by": {
+       "salt_balance": 0.9989,
+       "ro_water_perm": 0.8812,
+       "ro_salt_perm": 0.6329
+      }
+     },
+     {
+      "bias": 0.1,
+      "any": 1.0,
+      "by": {
+       "salt_balance": 1.0,
+       "ro_water_perm": 0.9998
+      }
+     },
+     {
+      "bias": -0.1,
+      "any": 1.0,
+      "by": {
+       "salt_balance": 1.0,
+       "ro_water_perm": 1.0,
+       "ro_salt_perm": 0.9997
+      }
+     },
+     {
+      "bias": 0.2,
+      "any": 1.0,
+      "by": {
+       "salt_balance": 1.0,
+       "ro_water_perm": 1.0,
+       "ro_salt_perm": 0.9075
+      }
+     },
+     {
+      "bias": -0.2,
+      "any": 1.0,
+      "by": {
+       "salt_balance": 1.0,
+       "ro_water_perm": 1.0,
+       "ro_salt_perm": 1.0
+      }
+     },
+     {
+      "bias": 0.5,
+      "any": 1.0,
+      "by": {
+       "salt_balance": 1.0,
+       "ro_water_perm": 1.0,
+       "ro_salt_perm": 1.0
+      }
+     },
+     {
+      "bias": -0.5,
+      "any": 1.0,
+      "by": {
+       "salt_balance": 1.0,
+       "ro_water_perm": 1.0,
+       "ro_salt_perm": 1.0
+      }
+     }
+    ]
+   },
+   "C_perm": {
+    "unit": "relative",
+    "min_detectable_both_signs": 0.2,
+    "min_detectable_either_sign": 0.1,
+    "levels": [
+     {
+      "bias": 0.01,
+      "any": 0.0852,
+      "by": {
+       "ro_water_perm": 0.0565,
+       "ro_salt_perm": 0.0353
+      }
+     },
+     {
+      "bias": -0.01,
+      "any": 0.0635,
+      "by": {
+       "ro_water_perm": 0.0554
+      }
+     },
+     {
+      "bias": 0.02,
+      "any": 0.1449,
+      "by": {
+       "ro_water_perm": 0.0571,
+       "ro_salt_perm": 0.1142
+      }
+     },
+     {
+      "bias": -0.02,
+      "any": 0.0627,
+      "by": {
+       "ro_water_perm": 0.0548
+      }
+     },
+     {
+      "bias": 0.05,
+      "any": 0.589,
+      "by": {
+       "ro_water_perm": 0.0587,
+       "ro_salt_perm": 0.5886
+      }
+     },
+     {
+      "bias": -0.05,
+      "any": 0.0608,
+      "by": {
+       "ro_water_perm": 0.0529
+      }
+     },
+     {
+      "bias": 0.1,
+      "any": 0.9978,
+      "by": {
+       "ro_water_perm": 0.0615,
+       "ro_salt_perm": 0.9978
+      }
+     },
+     {
+      "bias": -0.1,
+      "any": 0.0606,
+      "by": {
+       "ro_water_perm": 0.0503
+      }
+     },
+     {
+      "bias": 0.2,
+      "any": 1.0,
+      "by": {
+       "ro_water_perm": 0.0676,
+       "ro_salt_perm": 1.0
+      }
+     },
+     {
+      "bias": -0.2,
+      "any": 1.0,
+      "by": {
+       "ro_water_perm": 0.0443,
+       "ro_salt_perm": 1.0
+      }
+     },
+     {
+      "bias": 0.5,
+      "any": 1.0,
+      "by": {
+       "ro_water_perm": 0.0866,
+       "ro_salt_perm": 1.0
+      }
+     },
+     {
+      "bias": -0.5,
+      "any": 1.0,
+      "by": {
+       "ro_water_perm": 0.0281,
+       "ro_salt_perm": 1.0
+      }
+     }
+    ]
+   },
+   "C_conc": {
+    "unit": "relative",
+    "min_detectable_both_signs": 0.05,
+    "min_detectable_either_sign": 0.05,
+    "levels": [
+     {
+      "bias": 0.01,
+      "any": 0.0667,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": -0.01,
+      "any": 0.0667,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": 0.02,
+      "any": 0.0775,
+      "by": {
+       "salt_balance": 0.0122,
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": -0.02,
+      "any": 0.0744,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": 0.05,
+      "any": 0.9955,
+      "by": {
+       "salt_balance": 0.9953,
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": -0.05,
+      "any": 0.9975,
+      "by": {
+       "salt_balance": 0.9972,
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": 0.1,
+      "any": 1.0,
+      "by": {
+       "salt_balance": 1.0,
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": -0.1,
+      "any": 1.0,
+      "by": {
+       "salt_balance": 1.0,
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": 0.2,
+      "any": 1.0,
+      "by": {
+       "salt_balance": 1.0,
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": -0.2,
+      "any": 1.0,
+      "by": {
+       "salt_balance": 1.0,
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": 0.5,
+      "any": 1.0,
+      "by": {
+       "salt_balance": 1.0,
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": -0.5,
+      "any": 1.0,
+      "by": {
+       "salt_balance": 1.0,
+       "ro_water_perm": 0.056
+      }
+     }
+    ]
+   },
+   "W_hp": {
+    "unit": "relative",
+    "min_detectable_both_signs": null,
+    "min_detectable_either_sign": null,
+    "levels": [
+     {
+      "bias": 0.01,
+      "any": 0.0667,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": -0.01,
+      "any": 0.0667,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": 0.02,
+      "any": 0.0667,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": -0.02,
+      "any": 0.0667,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": 0.05,
+      "any": 0.0667,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": -0.05,
+      "any": 0.0667,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": 0.1,
+      "any": 0.0667,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": -0.1,
+      "any": 0.0667,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": 0.2,
+      "any": 0.0667,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": -0.2,
+      "any": 0.0667,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": 0.5,
+      "any": 0.0667,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     },
+     {
+      "bias": -0.5,
+      "any": 0.0667,
+      "by": {
+       "ro_water_perm": 0.056
+      }
+     }
+    ]
+   }
+  },
+  "trailing": {
+   "Q_uf": {
+    "unit": "relative",
+    "min_detectable_both_signs": 0.5,
+    "min_detectable_either_sign": 0.5,
+    "levels": [
+     {
+      "bias": 0.01,
+      "any": 0.0,
+      "by": {}
+     },
+     {
+      "bias": -0.01,
+      "any": 0.0001,
+      "by": {}
+     },
+     {
+      "bias": 0.02,
+      "any": 0.0,
+      "by": {}
+     },
+     {
+      "bias": -0.02,
+      "any": 0.0002,
+      "by": {}
+     },
+     {
+      "bias": 0.05,
+      "any": 0.0,
+      "by": {}
+     },
+     {
+      "bias": -0.05,
+      "any": 0.0024,
+      "by": {}
+     },
+     {
+      "bias": 0.1,
+      "any": 0.0,
+      "by": {}
+     },
+     {
+      "bias": -0.1,
+      "any": 0.0108,
+      "by": {
+       "uf_resistance": 0.0108
+      }
+     },
+     {
+      "bias": 0.2,
+      "any": 0.0069,
+      "by": {}
+     },
+     {
+      "bias": -0.2,
+      "any": 0.8784,
+      "by": {
+       "uf_resistance": 0.8784
+      }
+     },
+     {
+      "bias": 0.5,
+      "any": 0.9444,
+      "by": {
+       "uf_resistance": 0.9444
+      }
+     },
+     {
+      "bias": -0.5,
+      "any": 0.9792,
+      "by": {
+       "uf_resistance": 0.9792
+      }
+     }
+    ]
+   },
+   "TMP_uf": {
+    "unit": "relative",
+    "min_detectable_both_signs": 0.5,
+    "min_detectable_either_sign": 0.5,
+    "levels": [
+     {
+      "bias": 0.01,
+      "any": 0.0001,
+      "by": {}
+     },
+     {
+      "bias": -0.01,
+      "any": 0.0,
+      "by": {}
+     },
+     {
+      "bias": 0.02,
+      "any": 0.0002,
+      "by": {}
+     },
+     {
+      "bias": -0.02,
+      "any": 0.0,
+      "by": {}
+     },
+     {
+      "bias": 0.05,
+      "any": 0.0022,
+      "by": {}
+     },
+     {
+      "bias": -0.05,
+      "any": 0.0,
+      "by": {}
+     },
+     {
+      "bias": 0.1,
+      "any": 0.0091,
+      "by": {}
+     },
+     {
+      "bias": -0.1,
+      "any": 0.0001,
+      "by": {}
+     },
+     {
+      "bias": 0.2,
+      "any": 0.2661,
+      "by": {
+       "uf_resistance": 0.266
+      }
+     },
+     {
+      "bias": -0.2,
+      "any": 0.0791,
+      "by": {
+       "uf_resistance": 0.0791
+      }
+     },
+     {
+      "bias": 0.5,
+      "any": 0.9203,
+      "by": {
+       "uf_resistance": 0.9203
+      }
+     },
+     {
+      "bias": -0.5,
+      "any": 0.9966,
+      "by": {
+       "uf_resistance": 0.9966
+      }
+     }
+    ]
+   },
+   "T_feed": {
+    "unit": "degC",
+    "min_detectable_both_signs": 5,
+    "min_detectable_either_sign": 5,
+    "levels": [
+     {
+      "bias": 0.25,
+      "any": 0.0001,
+      "by": {}
+     },
+     {
+      "bias": -0.25,
+      "any": 0.0,
+      "by": {}
+     },
+     {
+      "bias": 0.5,
+      "any": 0.0003,
+      "by": {}
+     },
+     {
+      "bias": -0.5,
+      "any": 0.0001,
+      "by": {}
+     },
+     {
+      "bias": 1,
+      "any": 0.0056,
+      "by": {}
+     },
+     {
+      "bias": -1,
+      "any": 0.0048,
+      "by": {}
+     },
+     {
+      "bias": 2,
+      "any": 0.5414,
+      "by": {
+       "ro_water_perm": 0.1416,
+       "ro_salt_perm": 0.4518
+      }
+     },
+     {
+      "bias": -2,
+      "any": 0.5904,
+      "by": {
+       "ro_water_perm": 0.1203,
+       "ro_salt_perm": 0.5228
+      }
+     },
+     {
+      "bias": 5,
+      "any": 1.0,
+      "by": {
+       "ro_water_perm": 0.9999,
+       "ro_salt_perm": 0.9972,
+       "uf_resistance": 0.011
+      }
+     },
+     {
+      "bias": -5,
+      "any": 1.0,
+      "by": {
+       "ro_water_perm": 0.9937,
+       "ro_salt_perm": 1.0
+      }
+     }
+    ]
+   },
+   "FAC_pre": {
+    "unit": "relative",
+    "min_detectable_both_signs": null,
+    "min_detectable_either_sign": 0.5,
+    "levels": [
+     {
+      "bias": 0.01,
+      "any": 0.0,
+      "by": {}
+     },
+     {
+      "bias": -0.01,
+      "any": 0.0,
+      "by": {}
+     },
+     {
+      "bias": 0.02,
+      "any": 0.0,
+      "by": {}
+     },
+     {
+      "bias": -0.02,
+      "any": 0.0,
+      "by": {}
+     },
+     {
+      "bias": 0.05,
+      "any": 0.0,
+      "by": {}
+     },
+     {
+      "bias": -0.05,
+      "any": 0.0,
+      "by": {}
+     },
+     {
+      "bias": 0.1,
+      "any": 0.0,
+      "by": {}
+     },
+     {
+      "bias": -0.1,
+      "any": 0.0001,
+      "by": {}
+     },
+     {
+      "bias": 0.2,
+      "any": 0.0004,
+      "by": {}
+     },
+     {
+      "bias": -0.2,
+      "any": 0.0014,
+      "by": {}
+     },
+     {
+      "bias": 0.5,
+      "any": 0.1706,
+      "by": {
+       "orp_pretreat": 0.1705
+      }
+     },
+     {
+      "bias": -0.5,
+      "any": 0.9853,
+      "by": {
+       "orp_pretreat": 0.9853
+      }
+     }
+    ]
+   },
+   "ORP_pre": {
+    "unit": "mV",
+    "min_detectable_both_signs": 25,
+    "min_detectable_either_sign": 25,
+    "levels": [
+     {
+      "bias": 5,
+      "any": 0.0002,
+      "by": {}
+     },
+     {
+      "bias": -5,
+      "any": 0.0002,
+      "by": {}
+     },
+     {
+      "bias": 10,
+      "any": 0.0383,
+      "by": {
+       "orp_pretreat": 0.0382
+      }
+     },
+     {
+      "bias": -10,
+      "any": 0.0338,
+      "by": {
+       "orp_pretreat": 0.0337
+      }
+     },
+     {
+      "bias": 25,
+      "any": 0.9999,
+      "by": {
+       "orp_pretreat": 0.9999
+      }
+     },
+     {
+      "bias": -25,
+      "any": 0.9999,
+      "by": {
+       "orp_pretreat": 0.9999
+      }
+     },
+     {
+      "bias": 50,
+      "any": 1.0,
+      "by": {
+       "orp_pretreat": 1.0
+      }
+     },
+     {
+      "bias": -50,
+      "any": 1.0,
+      "by": {
+       "orp_pretreat": 1.0
+      }
+     },
+     {
+      "bias": 100,
+      "any": 1.0,
+      "by": {
+       "orp_pretreat": 1.0
+      }
+     },
+     {
+      "bias": -100,
+      "any": 1.0,
+      "by": {
+       "orp_pretreat": 1.0
+      }
+     },
+     {
+      "bias": 200,
+      "any": 1.0,
+      "by": {
+       "orp_pretreat": 1.0
+      }
+     },
+     {
+      "bias": -200,
+      "any": 1.0,
+      "by": {
+       "orp_pretreat": 1.0
+      }
+     }
+    ]
+   },
+   "pH_feed": {
+    "unit": "-",
+    "min_detectable_both_signs": null,
+    "min_detectable_either_sign": null,
+    "levels": [
+     {
+      "bias": 0.05,
+      "any": 0.0,
+      "by": {}
+     },
+     {
+      "bias": -0.05,
+      "any": 0.0,
+      "by": {}
+     },
+     {
+      "bias": 0.1,
+      "any": 0.0,
+      "by": {}
+     },
+     {
+      "bias": -0.1,
+      "any": 0.0,
+      "by": {}
+     },
+     {
+      "bias": 0.2,
+      "any": 0.0001,
+      "by": {}
+     },
+     {
+      "bias": -0.2,
+      "any": 0.0,
+      "by": {}
+     },
+     {
+      "bias": 0.5,
+      "any": 0.0054,
+      "by": {}
+     },
+     {
+      "bias": -0.5,
+      "any": 0.0044,
+      "by": {}
+     },
+     {
+      "bias": 1.0,
+      "any": 0.64,
+      "by": {
+       "orp_pretreat": 0.64
+      }
+     },
+     {
+      "bias": -1.0,
+      "any": 0.6284,
+      "by": {
+       "orp_pretreat": 0.6284
+      }
+     }
+    ]
+   },
+   "Q_sbs": {
+    "unit": "relative",
+    "min_detectable_both_signs": null,
+    "min_detectable_either_sign": null,
+    "levels": [
+     {
+      "bias": 0.01,
+      "any": 0.0,
+      "by": {}
+     },
+     {
+      "bias": -0.01,
+      "any": 0.0,
+      "by": {}
+     },
+     {
+      "bias": 0.02,
+      "any": 0.0,
+      "by": {}
+     },
+     {
+      "bias": -0.02,
+      "any": 0.0,
+      "by": {}
+     },
+     {
+      "bias": 0.05,
+      "any": 0.0,
+      "by": {}
+     },
+     {
+      "bias": -0.05,
+      "any": 0.0,
+      "by": {}
+     },
+     {
+      "bias": 0.1,
+      "any": 0.0,
+      "by": {}
+     },
+     {
+      "bias": -0.1,
+      "any": 0.0,
+      "by": {}
+     },
+     {
+      "bias": 0.2,
+      "any": 0.0,
+      "by": {}
+     },
+     {
+      "bias": -0.2,
+      "any": 0.0,
+      "by": {}
+     },
+     {
+      "bias": 0.5,
+      "any": 0.0,
+      "by": {}
+     },
+     {
+      "bias": -0.5,
+      "any": 0.0,
+      "by": {}
+     }
+    ]
+   },
+   "ORP_ro": {
+    "unit": "mV",
+    "min_detectable_both_signs": 50,
+    "min_detectable_either_sign": 50,
+    "levels": [
+     {
+      "bias": 5,
+      "any": 0.0,
+      "by": {}
+     },
+     {
+      "bias": -5,
+      "any": 0.0,
+      "by": {}
+     },
+     {
+      "bias": 10,
+      "any": 0.0,
+      "by": {}
+     },
+     {
+      "bias": -10,
+      "any": 0.0,
+      "by": {}
+     },
+     {
+      "bias": 25,
+      "any": 0.7688,
+      "by": {
+       "orp_ro_feed": 0.7688
+      }
+     },
+     {
+      "bias": -25,
+      "any": 0.7731,
+      "by": {
+       "orp_ro_feed": 0.7731
+      }
+     },
+     {
+      "bias": 50,
+      "any": 1.0,
+      "by": {
+       "orp_ro_feed": 1.0
+      }
+     },
+     {
+      "bias": -50,
+      "any": 1.0,
+      "by": {
+       "orp_ro_feed": 1.0
+      }
+     },
+     {
+      "bias": 100,
+      "any": 1.0,
+      "by": {
+       "orp_ro_feed": 1.0
+      }
+     },
+     {
+      "bias": -100,
+      "any": 1.0,
+      "by": {
+       "orp_ro_feed": 1.0
+      }
+     },
+     {
+      "bias": 200,
+      "any": 1.0,
+      "by": {
+       "orp_ro_feed": 1.0
+      }
+     },
+     {
+      "bias": -200,
+      "any": 1.0,
+      "by": {
+       "orp_ro_feed": 1.0
+      }
+     }
+    ]
+   },
+   "Q_feed": {
+    "unit": "relative",
+    "min_detectable_both_signs": 0.05,
+    "min_detectable_either_sign": 0.05,
+    "levels": [
+     {
+      "bias": 0.01,
+      "any": 0.0069,
+      "by": {}
+     },
+     {
+      "bias": -0.01,
+      "any": 0.0088,
+      "by": {}
+     },
+     {
+      "bias": 0.02,
+      "any": 0.5628,
+      "by": {
+       "flow_balance": 0.5627
+      }
+     },
+     {
+      "bias": -0.02,
+      "any": 0.6323,
+      "by": {
+       "flow_balance": 0.6323,
+       "salt_balance": 0.015
+      }
+     },
+     {
+      "bias": 0.05,
+      "any": 1.0,
+      "by": {
+       "flow_balance": 1.0,
+       "salt_balance": 0.9919,
+       "ro_water_perm": 0.0826
+      }
+     },
+     {
+      "bias": -0.05,
+      "any": 1.0,
+      "by": {
+       "flow_balance": 1.0,
+       "salt_balance": 0.9989,
+       "ro_water_perm": 0.222
+      }
+     },
+     {
+      "bias": 0.1,
+      "any": 1.0,
+      "by": {
+       "flow_balance": 1.0,
+       "salt_balance": 1.0,
+       "ro_water_perm": 0.9237
+      }
+     },
+     {
+      "bias": -0.1,
+      "any": 1.0,
+      "by": {
+       "flow_balance": 1.0,
+       "salt_balance": 1.0,
+       "ro_water_perm": 0.9977,
+       "ro_salt_perm": 0.0346
+      }
+     },
+     {
+      "bias": 0.2,
+      "any": 1.0,
+      "by": {
+       "flow_balance": 1.0,
+       "salt_balance": 1.0,
+       "ro_water_perm": 1.0,
+       "ro_salt_perm": 0.3341,
+       "ro_brine_dp": 0.0442
+      }
+     },
+     {
+      "bias": -0.2,
+      "any": 1.0,
+      "by": {
+       "flow_balance": 1.0,
+       "salt_balance": 1.0,
+       "ro_water_perm": 1.0,
+       "ro_salt_perm": 0.9851,
+       "ro_brine_dp": 0.1002
+      }
+     },
+     {
+      "bias": 0.5,
+      "any": 1.0,
+      "by": {
+       "flow_balance": 1.0,
+       "salt_balance": 1.0,
+       "ro_water_perm": 1.0,
+       "ro_salt_perm": 0.9998,
+       "ro_brine_dp": 0.9995
+      }
+     },
+     {
+      "bias": -0.5,
+      "any": 1.0,
+      "by": {
+       "flow_balance": 1.0,
+       "salt_balance": 1.0,
+       "ro_water_perm": 1.0,
+       "ro_salt_perm": 1.0,
+       "ro_brine_dp": 1.0
+      }
+     }
+    ]
+   },
+   "Q_perm": {
+    "unit": "relative",
+    "min_detectable_both_signs": 0.05,
+    "min_detectable_either_sign": 0.05,
+    "levels": [
+     {
+      "bias": 0.01,
+      "any": 0.0006,
+      "by": {}
+     },
+     {
+      "bias": -0.01,
+      "any": 0.0009,
+      "by": {}
+     },
+     {
+      "bias": 0.02,
+      "any": 0.0496,
+      "by": {
+       "ro_water_perm": 0.048
+      }
+     },
+     {
+      "bias": -0.02,
+      "any": 0.0584,
+      "by": {
+       "ro_water_perm": 0.0571
+      }
+     },
+     {
+      "bias": 0.05,
+      "any": 0.9965,
+      "by": {
+       "flow_balance": 0.6847,
+       "ro_water_perm": 0.9919
+      }
+     },
+     {
+      "bias": -0.05,
+      "any": 0.9998,
+      "by": {
+       "flow_balance": 0.6972,
+       "ro_water_perm": 0.9998,
+       "ro_salt_perm": 0.0153
+      }
+     },
+     {
+      "bias": 0.1,
+      "any": 1.0,
+      "by": {
+       "flow_balance": 1.0,
+       "ro_water_perm": 1.0,
+       "ro_salt_perm": 0.6131
+      }
+     },
+     {
+      "bias": -0.1,
+      "any": 1.0,
+      "by": {
+       "flow_balance": 1.0,
+       "ro_water_perm": 1.0,
+       "ro_salt_perm": 0.8905
+      }
+     },
+     {
+      "bias": 0.2,
+      "any": 1.0,
+      "by": {
+       "flow_balance": 1.0,
+       "ro_water_perm": 1.0,
+       "ro_salt_perm": 1.0
+      }
+     },
+     {
+      "bias": -0.2,
+      "any": 1.0,
+      "by": {
+       "flow_balance": 1.0,
+       "ro_water_perm": 1.0,
+       "ro_salt_perm": 0.9999
+      }
+     },
+     {
+      "bias": 0.5,
+      "any": 1.0,
+      "by": {
+       "flow_balance": 1.0,
+       "ro_water_perm": 1.0,
+       "ro_salt_perm": 1.0
+      }
+     },
+     {
+      "bias": -0.5,
+      "any": 1.0,
+      "by": {
+       "flow_balance": 1.0,
+       "ro_water_perm": 1.0,
+       "ro_salt_perm": 1.0
+      }
+     }
+    ]
+   },
+   "Q_conc": {
+    "unit": "relative",
+    "min_detectable_both_signs": 0.05,
+    "min_detectable_either_sign": 0.05,
+    "levels": [
+     {
+      "bias": 0.01,
+      "any": 0.0002,
+      "by": {}
+     },
+     {
+      "bias": -0.01,
+      "any": 0.0003,
+      "by": {}
+     },
+     {
+      "bias": 0.02,
+      "any": 0.0328,
+      "by": {
+       "flow_balance": 0.0244,
+       "salt_balance": 0.0122
+      }
+     },
+     {
+      "bias": -0.02,
+      "any": 0.0268,
+      "by": {
+       "flow_balance": 0.0221
+      }
+     },
+     {
+      "bias": 0.05,
+      "any": 0.9991,
+      "by": {
+       "flow_balance": 0.9941,
+       "salt_balance": 0.9953
+      }
+     },
+     {
+      "bias": -0.05,
+      "any": 0.9994,
+      "by": {
+       "flow_balance": 0.9963,
+       "salt_balance": 0.9972
+      }
+     },
+     {
+      "bias": 0.1,
+      "any": 1.0,
+      "by": {
+       "flow_balance": 1.0,
+       "salt_balance": 1.0
+      }
+     },
+     {
+      "bias": -0.1,
+      "any": 1.0,
+      "by": {
+       "flow_balance": 1.0,
+       "salt_balance": 1.0
+      }
+     },
+     {
+      "bias": 0.2,
+      "any": 1.0,
+      "by": {
+       "flow_balance": 1.0,
+       "salt_balance": 1.0
+      }
+     },
+     {
+      "bias": -0.2,
+      "any": 1.0,
+      "by": {
+       "flow_balance": 1.0,
+       "salt_balance": 1.0
+      }
+     },
+     {
+      "bias": 0.5,
+      "any": 1.0,
+      "by": {
+       "flow_balance": 1.0,
+       "salt_balance": 1.0,
+       "ro_brine_dp": 0.4347
+      }
+     },
+     {
+      "bias": -0.5,
+      "any": 1.0,
+      "by": {
+       "flow_balance": 1.0,
+       "salt_balance": 1.0,
+       "ro_brine_dp": 0.8279
+      }
+     }
+    ]
+   },
+   "P_feed": {
+    "unit": "relative",
+    "min_detectable_both_signs": 0.01,
+    "min_detectable_either_sign": 0.01,
+    "levels": [
+     {
+      "bias": 0.01,
+      "any": 0.9872,
+      "by": {
+       "ro_brine_dp": 0.9872
+      }
+     },
+     {
+      "bias": -0.01,
+      "any": 0.9999,
+      "by": {
+       "ro_brine_dp": 0.9999
+      }
+     },
+     {
+      "bias": 0.02,
+      "any": 1.0,
+      "by": {
+       "ro_water_perm": 0.0358,
+       "ro_brine_dp": 1.0
+      }
+     },
+     {
+      "bias": -0.02,
+      "any": 1.0,
+      "by": {
+       "ro_water_perm": 0.0375,
+       "ro_brine_dp": 1.0
+      }
+     },
+     {
+      "bias": 0.05,
+      "any": 1.0,
+      "by": {
+       "ro_water_perm": 0.9977,
+       "ro_brine_dp": 1.0
+      }
+     },
+     {
+      "bias": -0.05,
+      "any": 1.0,
+      "by": {
+       "ro_water_perm": 0.9916,
+       "ro_brine_dp": 1.0
+      }
+     },
+     {
+      "bias": 0.1,
+      "any": 1.0,
+      "by": {
+       "ro_water_perm": 1.0,
+       "ro_brine_dp": 1.0
+      }
+     },
+     {
+      "bias": -0.1,
+      "any": 1.0,
+      "by": {
+       "ro_water_perm": 1.0,
+       "ro_brine_dp": 1.0
+      }
+     },
+     {
+      "bias": 0.2,
+      "any": 1.0,
+      "by": {
+       "ro_water_perm": 1.0,
+       "ro_brine_dp": 1.0
+      }
+     },
+     {
+      "bias": -0.2,
+      "any": 1.0,
+      "by": {
+       "ro_water_perm": 1.0,
+       "ro_brine_dp": 1.0
+      }
+     },
+     {
+      "bias": 0.5,
+      "any": 1.0,
+      "by": {
+       "ro_water_perm": 1.0,
+       "ro_brine_dp": 1.0
+      }
+     },
+     {
+      "bias": -0.5,
+      "any": 1.0,
+      "by": {
+       "ro_water_perm": 1.0,
+       "ro_brine_dp": 1.0
+      }
+     }
+    ]
+   },
+   "P_conc": {
+    "unit": "relative",
+    "min_detectable_both_signs": 0.01,
+    "min_detectable_either_sign": 0.01,
+    "levels": [
+     {
+      "bias": 0.01,
+      "any": 0.9997,
+      "by": {
+       "ro_brine_dp": 0.9997
+      }
+     },
+     {
+      "bias": -0.01,
+      "any": 0.9789,
+      "by": {
+       "ro_brine_dp": 0.9789
+      }
+     },
+     {
+      "bias": 0.02,
+      "any": 1.0,
+      "by": {
+       "ro_water_perm": 0.0315,
+       "ro_brine_dp": 1.0
+      }
+     },
+     {
+      "bias": -0.02,
+      "any": 1.0,
+      "by": {
+       "ro_water_perm": 0.0325,
+       "ro_brine_dp": 1.0
+      }
+     },
+     {
+      "bias": 0.05,
+      "any": 1.0,
+      "by": {
+       "ro_water_perm": 0.9958,
+       "ro_brine_dp": 1.0
+      }
+     },
+     {
+      "bias": -0.05,
+      "any": 1.0,
+      "by": {
+       "ro_water_perm": 0.9903,
+       "ro_brine_dp": 1.0
+      }
+     },
+     {
+      "bias": 0.1,
+      "any": 1.0,
+      "by": {
+       "ro_water_perm": 1.0,
+       "ro_brine_dp": 1.0
+      }
+     },
+     {
+      "bias": -0.1,
+      "any": 1.0,
+      "by": {
+       "ro_water_perm": 1.0,
+       "ro_brine_dp": 1.0
+      }
+     },
+     {
+      "bias": 0.2,
+      "any": 1.0,
+      "by": {
+       "ro_water_perm": 1.0,
+       "ro_brine_dp": 1.0
+      }
+     },
+     {
+      "bias": -0.2,
+      "any": 1.0,
+      "by": {
+       "ro_water_perm": 1.0,
+       "ro_brine_dp": 1.0
+      }
+     },
+     {
+      "bias": 0.5,
+      "any": 1.0,
+      "by": {
+       "ro_water_perm": 1.0,
+       "ro_brine_dp": 1.0
+      }
+     },
+     {
+      "bias": -0.5,
+      "any": 1.0,
+      "by": {
+       "ro_water_perm": 1.0,
+       "ro_brine_dp": 1.0
+      }
+     }
+    ]
+   },
+   "P_perm": {
+    "unit": "relative",
+    "min_detectable_both_signs": null,
+    "min_detectable_either_sign": null,
+    "levels": [
+     {
+      "bias": 0.01,
+      "any": 0.0,
+      "by": {}
+     },
+     {
+      "bias": -0.01,
+      "any": 0.0,
+      "by": {}
+     },
+     {
+      "bias": 0.02,
+      "any": 0.0,
+      "by": {}
+     },
+     {
+      "bias": -0.02,
+      "any": 0.0,
+      "by": {}
+     },
+     {
+      "bias": 0.05,
+      "any": 0.0,
+      "by": {}
+     },
+     {
+      "bias": -0.05,
+      "any": 0.0,
+      "by": {}
+     },
+     {
+      "bias": 0.1,
+      "any": 0.0,
+      "by": {}
+     },
+     {
+      "bias": -0.1,
+      "any": 0.0,
+      "by": {}
+     },
+     {
+      "bias": 0.2,
+      "any": 0.0001,
+      "by": {}
+     },
+     {
+      "bias": -0.2,
+      "any": 0.0001,
+      "by": {}
+     },
+     {
+      "bias": 0.5,
+      "any": 0.0015,
+      "by": {}
+     },
+     {
+      "bias": -0.5,
+      "any": 0.0021,
+      "by": {}
+     }
+    ]
+   },
+   "C_feed": {
+    "unit": "relative",
+    "min_detectable_both_signs": 0.05,
+    "min_detectable_either_sign": 0.05,
+    "levels": [
+     {
+      "bias": 0.01,
+      "any": 0.0051,
+      "by": {}
+     },
+     {
+      "bias": -0.01,
+      "any": 0.0059,
+      "by": {}
+     },
+     {
+      "bias": 0.02,
+      "any": 0.3772,
+      "by": {
+       "ro_water_perm": 0.3743
+      }
+     },
+     {
+      "bias": -0.02,
+      "any": 0.3445,
+      "by": {
+       "salt_balance": 0.015,
+       "ro_water_perm": 0.3382
+      }
+     },
+     {
+      "bias": 0.05,
+      "any": 1.0,
+      "by": {
+       "salt_balance": 0.9919,
+       "ro_water_perm": 1.0,
+       "ro_salt_perm": 0.1839
+      }
+     },
+     {
+      "bias": -0.05,
+      "any": 1.0,
+      "by": {
+       "salt_balance": 0.9989,
+       "ro_water_perm": 1.0,
+       "ro_salt_perm": 0.2846
+      }
+     },
+     {
+      "bias": 0.1,
+      "any": 1.0,
+      "by": {
+       "salt_balance": 1.0,
+       "ro_water_perm": 1.0,
+       "ro_salt_perm": 0.9901
+      }
+     },
+     {
+      "bias": -0.1,
+      "any": 1.0,
+      "by": {
+       "salt_balance": 1.0,
+       "ro_water_perm": 1.0,
+       "ro_salt_perm": 1.0
+      }
+     },
+     {
+      "bias": 0.2,
+      "any": 1.0,
+      "by": {
+       "salt_balance": 1.0,
+       "ro_water_perm": 1.0,
+       "ro_salt_perm": 1.0
+      }
+     },
+     {
+      "bias": -0.2,
+      "any": 1.0,
+      "by": {
+       "salt_balance": 1.0,
+       "ro_water_perm": 1.0,
+       "ro_salt_perm": 1.0
+      }
+     },
+     {
+      "bias": 0.5,
+      "any": 1.0,
+      "by": {
+       "salt_balance": 1.0,
+       "ro_water_perm": 1.0,
+       "ro_salt_perm": 1.0
+      }
+     },
+     {
+      "bias": -0.5,
+      "any": 1.0,
+      "by": {
+       "salt_balance": 1.0,
+       "ro_water_perm": 1.0,
+       "ro_salt_perm": 1.0
+      }
+     }
+    ]
+   },
+   "C_perm": {
+    "unit": "relative",
+    "min_detectable_both_signs": 0.1,
+    "min_detectable_either_sign": 0.1,
+    "levels": [
+     {
+      "bias": 0.01,
+      "any": 0.0,
+      "by": {}
+     },
+     {
+      "bias": -0.01,
+      "any": 0.0001,
+      "by": {}
+     },
+     {
+      "bias": 0.02,
+      "any": 0.0002,
+      "by": {}
+     },
+     {
+      "bias": -0.02,
+      "any": 0.0003,
+      "by": {}
+     },
+     {
+      "bias": 0.05,
+      "any": 0.2119,
+      "by": {
+       "ro_salt_perm": 0.2119
+      }
+     },
+     {
+      "bias": -0.05,
+      "any": 0.2504,
+      "by": {
+       "ro_salt_perm": 0.2504
+      }
+     },
+     {
+      "bias": 0.1,
+      "any": 0.9996,
+      "by": {
+       "ro_salt_perm": 0.9996
+      }
+     },
+     {
+      "bias": -0.1,
+      "any": 0.9903,
+      "by": {
+       "ro_salt_perm": 0.9903
+      }
+     },
+     {
+      "bias": 0.2,
+      "any": 1.0,
+      "by": {
+       "ro_salt_perm": 1.0
+      }
+     },
+     {
+      "bias": -0.2,
+      "any": 1.0,
+      "by": {
+       "ro_salt_perm": 1.0
+      }
+     },
+     {
+      "bias": 0.5,
+      "any": 1.0,
+      "by": {
+       "ro_salt_perm": 1.0
+      }
+     },
+     {
+      "bias": -0.5,
+      "any": 1.0,
+      "by": {
+       "ro_salt_perm": 1.0
+      }
+     }
+    ]
+   },
+   "C_conc": {
+    "unit": "relative",
+    "min_detectable_both_signs": 0.05,
+    "min_detectable_either_sign": 0.05,
+    "levels": [
+     {
+      "bias": 0.01,
+      "any": 0.0001,
+      "by": {}
+     },
+     {
+      "bias": -0.01,
+      "any": 0.0001,
+      "by": {}
+     },
+     {
+      "bias": 0.02,
+      "any": 0.0122,
+      "by": {
+       "salt_balance": 0.0122
+      }
+     },
+     {
+      "bias": -0.02,
+      "any": 0.0083,
+      "by": {}
+     },
+     {
+      "bias": 0.05,
+      "any": 0.9953,
+      "by": {
+       "salt_balance": 0.9953
+      }
+     },
+     {
+      "bias": -0.05,
+      "any": 0.9972,
+      "by": {
+       "salt_balance": 0.9972
+      }
+     },
+     {
+      "bias": 0.1,
+      "any": 1.0,
+      "by": {
+       "salt_balance": 1.0
+      }
+     },
+     {
+      "bias": -0.1,
+      "any": 1.0,
+      "by": {
+       "salt_balance": 1.0
+      }
+     },
+     {
+      "bias": 0.2,
+      "any": 1.0,
+      "by": {
+       "salt_balance": 1.0
+      }
+     },
+     {
+      "bias": -0.2,
+      "any": 1.0,
+      "by": {
+       "salt_balance": 1.0
+      }
+     },
+     {
+      "bias": 0.5,
+      "any": 1.0,
+      "by": {
+       "salt_balance": 1.0
+      }
+     },
+     {
+      "bias": -0.5,
+      "any": 1.0,
+      "by": {
+       "salt_balance": 1.0
+      }
+     }
+    ]
+   },
+   "W_hp": {
+    "unit": "relative",
+    "min_detectable_both_signs": null,
+    "min_detectable_either_sign": null,
+    "levels": [
+     {
+      "bias": 0.01,
+      "any": 0.0,
+      "by": {}
+     },
+     {
+      "bias": -0.01,
+      "any": 0.0,
+      "by": {}
+     },
+     {
+      "bias": 0.02,
+      "any": 0.0,
+      "by": {}
+     },
+     {
+      "bias": -0.02,
+      "any": 0.0,
+      "by": {}
+     },
+     {
+      "bias": 0.05,
+      "any": 0.0,
+      "by": {}
+     },
+     {
+      "bias": -0.05,
+      "any": 0.0,
+      "by": {}
+     },
+     {
+      "bias": 0.1,
+      "any": 0.0,
+      "by": {}
+     },
+     {
+      "bias": -0.1,
+      "any": 0.0,
+      "by": {}
+     },
+     {
+      "bias": 0.2,
+      "any": 0.0,
+      "by": {}
+     },
+     {
+      "bias": -0.2,
+      "any": 0.0,
+      "by": {}
+     },
+     {
+      "bias": 0.5,
+      "any": 0.0,
+      "by": {}
+     },
+     {
+      "bias": -0.5,
+      "any": 0.0,
+      "by": {}
+     }
+    ]
+   }
+  }
+ }
+}
